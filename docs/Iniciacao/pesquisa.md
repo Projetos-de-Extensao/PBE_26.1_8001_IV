@@ -8,7 +8,7 @@ title: Pesquisa
 Pesquisa realizada para compreensão das principais características do Sistema de avaliação de estágio.
 
 
-## Legislação do MEC
+# Legislação do MEC
  
 Após pesquisa da legislação do MEC, seguem observações que são fundamentais para o desenvolvimento do projeto: 
 
@@ -41,7 +41,7 @@ Após pesquisa da legislação do MEC, seguem observações que são fundamentai
 * **Mecanismos Digitais:** É necessário que a instituição de ensino tenha mecanismos eficazes de acompanhamento, preferencialmente digitais, como relatórios e avaliação do coordenador (**Portaria MEC nº 1.150/2024**). 
 
 * **Validação Jurídica:** Para validação jurídica, o MEC e o ITI incentivam que os documentos aceitem assinaturas digitais (**Lei 14.063/2020**).
-
+---
 # Normas e Regulamentos de Estágio - Ibmec
 
 ## 1. Diretrizes Institucionais e Gerais (Ibmec Rio de Janeiro)
@@ -75,9 +75,71 @@ Após pesquisa da legislação do MEC, seguem observações que são fundamentai
 
 ---
 
+
+
+# Pesquisa de Aplicações
+
+Pesquisa realizada para compreensão das principais características de sistemas digitais utilizados na gestão de estágios.
+
+---
+
+### Sistema de Gestão de Estágios - CIEE
+
+Após análise da plataforma do CIEE, seguem observações relevantes para o desenvolvimento do projeto:
+
+- Cadastro de Usuários: Permite cadastro de alunos, empresas e instituições de ensino.
+- Vagas de Estágio: Empresas publicam vagas e os estudantes podem se candidatar.
+- Gestão de Contratos: Geração e acompanhamento do Termo de Compromisso de Estágio.
+- Acompanhamento: Controle de início, duração e encerramento do estágio.
+- Relatórios: Envio de relatórios periódicos pelos estudantes.
+
+Obs: O sistema centraliza a comunicação e a documentação entre as partes envolvidas.
+
+---
+
+### Plataforma de Estágios - Nube
+
+Após análise da plataforma Nube, seguem os principais pontos identificados:
+
+- Banco de Vagas: Oportunidades filtradas por área e localização.
+- Processo Seletivo: Etapas realizadas dentro da própria plataforma.
+- Gestão de Documentos: Controle de contratos e documentos obrigatórios.
+- Acompanhamento: Registro da evolução do estudante no estágio.
+- Integração: Comunicação direta entre empresas e candidatos.
+
+Obs: Forte foco em recrutamento e seleção, além da gestão do estágio.
+
+---
+
+### Sistema Acadêmico - SIGAA
+
+Com base na análise do SIGAA, seguem as funcionalidades observadas:
+
+- Cadastro de Estágio: Registro vinculado ao aluno.
+- Submissão de Documentos: Upload de termos, planos e relatórios.
+- Acompanhamento: Supervisão por professores orientadores.
+- Avaliação: Registro do desempenho do aluno.
+- Controle de Prazos: Monitoramento de datas importantes.
+
+Obs: Sistema voltado para controle acadêmico e validação institucional.
+
+---
+
+### Conclusão
+
+A partir da análise das aplicações, observa-se que os sistemas de estágio possuem funcionalidades em comum, como cadastro de usuários, gestão de vagas, controle de documentos, acompanhamento das atividades e supervisão.
+
+Dessa forma, conclui-se que essas aplicações servem como referência para a definição das funcionalidades essenciais do sistema a ser desenvolvido.
+
+
+---
 ### Fontes Consultadas:
 * [Lei Federal nº 11.788/2008 (Lei do Estágio)](https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/lei/l11788.htm)
 * [Resolução CNE/CES nº 3/2007 (MEC)](http://portal.mec.gov.br/cne/arquivos/pdf/2007/rces003_07.pdf)
 * [Lei nº 14.063/2020 (Assinaturas Eletrônicas)](https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/lei/l14063.htm)
 - [Regimento do Centro Universitário Ibmec (RJ)](https://s3.amazonaws.com/public-cdn.ibmec.br/portalibmec-content/public/arquivos/rj/norma_101_-_regimento_do_centro_universitario_ibmec.pdf)
 - [Regulamento de Estágio Ibmec 2022 (MG)](https://s3.amazonaws.com/public-cdn.ibmec.br/portalibmec-content/public/arquivos/bh/Graduacao/regulamento_estagio_ibmec_2022.pdf)
+
+- [Centro de Integração Empresa-Escola (CIEE)](https://portal.ciee.org.br/)
+- [Núcleo Brasileiro de Estágios (Nube)](https://www.nube.com.br/)
+- Sistema Integrado de Gestão de Atividades Acadêmicas (SIGAA) – informações obtidas em portais institucionais.
