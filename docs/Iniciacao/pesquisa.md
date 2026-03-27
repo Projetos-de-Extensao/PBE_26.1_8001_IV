@@ -131,6 +131,105 @@ A partir da análise das aplicações, observa-se que os sistemas de estágio po
 
 Dessa forma, conclui-se que essas aplicações servem como referência para a definição das funcionalidades essenciais do sistema a ser desenvolvido.
 
+---
+
+# Legislação Trabalhista do Estágio (Lei 11.788/08)
+
+Após pesquisa na legislação federal que regula o estágio no Brasil, seguem os principais pontos que precisam ser observados para garantir que o estágio seja regular e protegido juridicamente:
+
+### Conceito de Estágio (Art. 1º)
+O estágio é definido como um ato educativo supervisionado, desenvolvido no ambiente de trabalho, visando ao aprendizado e à preparação do estudante para o exercício profissional.
+
+---
+
+### Natureza do Estágio
+O estágio não cria vínculo empregatício, desde que todas as exigências legais sejam cumpridas (Art. 3º, §2º).
+Caso algum requisito seja descumprido, caracteriza-se vínculo trabalhista automaticamente.
+
+---
+
+### Termo de Compromisso (Art. 3º)
+O estágio só é válido se houver um acordo tripartite entre:
+Estudante
+Parte concedente (empresa/órgão)
+Instituição de ensino
+Esse documento estabelece atividades, carga horária, responsabilidades e condições do estágio.
+
+---
+
+### Jornada e Carga Horária (Art. 10)
+Para estudantes do ensino superior, educação profissional e ensino médio:
+Máx.: 6h por dia / 30h semanais
+Para estudantes da educação especial ou anos finais do ensino fundamental (EJA):
+Máx.: 4h por dia / 20h semanais
+Alterações só podem ser feitas com anuência das três partes.
+
+---
+
+### Duração do Estágio (Art. 11)
+O estágio não pode ultrapassar 2 anos na mesma empresa.
+Exceção: estudantes com deficiência, que podem permanecer por mais tempo.
+
+---
+
+### Compensação Financeira (Art. 12)
+Estágio Não-Obrigatório:
+É obrigatória a concessão de bolsa-auxílio (valor livre) e auxílio-transporte.
+Estágio Obrigatório:
+A empresa não é obrigada a pagar bolsa ou transporte (mas pode oferecer).
+
+---
+
+### Seguro Contra Acidentes Pessoais (Art. 9º, IV)
+A empresa deve fornecer seguro contra acidentes pessoais cobrindo o estudante durante o período do estágio, constando no termo:
+Número da apólice
+Nome da seguradora
+
+---
+
+### Supervisão e Orientação (Art. 9º, §1º e §2º)
+É obrigatório que:
+A empresa indique um supervisor com formação ou experiência na área.
+A instituição de ensino indique um professor orientador.
+Obs: Conselhos profissionais como OAB, CREA, COREN etc. podem impor exigências adicionais para estágios da área.
+
+---
+
+### Acompanhamento e Relatórios (Art. 7º, IV)
+O aluno deve apresentar relatórios semestrais de atividades à instituição de ensino.
+Esse documento deve conter:
+Descrição das atividades
+Assinatura do supervisor
+Avaliação do orientador
+
+---
+
+### Recesso (Art. 13)
+Para estágios com duração igual ou superior a 1 ano: 30 dias de recesso.
+Para períodos menores: proporcional ao tempo estagiado.
+Se o estágio é remunerado, o recesso deve ser remunerado também.
+
+---
+
+### Atividades Permitidas
+As atividades devem ser compatíveis com o plano de atividades aprovado pela instituição.
+Tarefas fora da área podem descaracterizar o estágio e gerar vínculo empregatício.
+
+---
+
+### Finalização do Estágio
+Ao encerrar o estágio, a empresa deve fornecer termo de realização contendo:
+Resumo das atividades
+Período estagiado
+Avaliação de desempenho
+
+---
+
+### Assinaturas Digitais e Sistemas (Lei 14.063/2020 & Portaria MEC nº 1.150/2024)
+A legislação permite e incentiva:
+Uso de assinaturas digitais no Termo de Compromisso e relatórios.
+Sistemas digitais para acompanhamento do estágio e avaliação do aluno.
+
 
 ---
 ### Fontes Consultadas:
