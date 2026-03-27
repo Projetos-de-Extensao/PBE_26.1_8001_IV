@@ -3,7 +3,12 @@
 **Código da Disciplina**: IBM8936<br>
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
+Componentes do grupo:
+- Giovanna Gomes Perrone
+- Maria Eduarda Perpetuo Lopes dos Santos
+- João Pedro Nicacio Athademo da silva
+- julia Valente D´Alessandro
+- Luana Salles Sousa Miranda
 
 ## Instalação 
 **Linguagens**: Python, Django<br>
