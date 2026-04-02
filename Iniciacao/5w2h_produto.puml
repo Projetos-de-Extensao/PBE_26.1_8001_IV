@@ -1,0 +1,34 @@
+@startmindmap
+* 5W2H - Produto (Visão de Negócio)
+
+** What
+*** API que valida contratos automaticamente
+*** Motor de regras baseado na Lei 11.788/08
+
+** Why
+*** Reduzir carga dos coordenadores
+*** Diminuir tempo de espera
+*** Minimizar erros humanos
+
+** Who
+*** Sistema do Ibmec
+*** Alunos (usuários indiretos)
+*** Coordenadores
+
+** Where
+*** GitHub
+*** Ambiente em nuvem (deploy)
+
+** When
+*** Validação em tempo real no envio
+
+** How
+*** Endpoints JSON
+*** Processamento com regras de negócio
+*** Retorno: Aprovado/Reprovado + justificativa
+
+** How much
+*** Possível custo de servidor
+*** Atualmente custo zero
+
+@endmindmap

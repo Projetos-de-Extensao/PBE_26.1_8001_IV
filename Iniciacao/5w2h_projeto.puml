@@ -1,0 +1,33 @@
+@startmindmap
+* 5W2H - Projeto (Visão Geral)
+
+** What
+*** API Backend para gestão e validação de propostas de estágio
+
+** Why
+*** Automatizar conformidade com Lei 11.788/08
+*** Acelerar o processo de avaliação
+
+** Who
+*** Giovanna Perrone
+*** Julia Valente
+*** Luana Salles
+*** João Pedro Nicacio
+*** Maria Eduarda Perpetuo
+
+** Where
+*** GitHub Codespaces
+*** MkDocs (GitHub Pages)
+
+** When
+*** Primeiro semestre de 2026
+
+** How
+*** Django / Python
+*** Metodologia UP/RUP
+
+** How much
+*** 20h/semana da equipe
+*** Custo zero (Open Source)
+
+@endmindmap
