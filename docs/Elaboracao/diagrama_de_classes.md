@@ -127,4 +127,4 @@ Empresa "1" -- "0..*" TermoCompromisso : oferece
 Seguradora "1" -- "0..*" TermoCompromisso : cobre
 Coordenador "1" -- "0..*" TermoCompromisso : supervisiona
 @enduml
-'''
+```
