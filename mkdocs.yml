@@ -96,8 +96,7 @@ plugins:
   - minify:
       minify_html: true
   - search
-  - kroki:
-      server: https://kroki.io
+  - kroki
 
 theme:
   name: material
