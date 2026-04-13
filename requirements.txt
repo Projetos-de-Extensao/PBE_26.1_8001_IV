@@ -1,4 +1,4 @@
-babel==2.18.0
+babel==2.18.0 
 certifi==2026.1.4
 charset-normalizer==3.4.4
 click==8.3.1
@@ -14,6 +14,7 @@ MarkupSafe==3.0.3
 mergedeep==1.3.4
 mkdocs==1.5.3
 mkdocs-material==9.4.14
+mkdocs-kroki-plugin==0.9.0
 mkdocs-material-extensions==1.3.1
 mkdocs-minify-plugin==0.8.0
 mkdocs-nav-enhancements==0.9.1
