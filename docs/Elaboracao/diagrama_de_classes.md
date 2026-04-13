@@ -85,7 +85,7 @@ title: Diagrama de Casos de Uso
 		- 2a1. Sistema exibe mensagem de erro
 	- 3a. Primeio acesso do Usuário
 		- 3a1. Sistema redireciona o Usuário para a página de edição de perfil
-
+```plantuml
 @startuml
 skinparam classAttributeIconSize 0
 skinparam monochrome true
@@ -122,8 +122,9 @@ class Coordenador {
     + analisarDocumento()
 }
 
-Aluno &quot;1&quot; -- &quot;0..*&quot; TermoCompromisso : assina
-Empresa &quot;1&quot; -- &quot;0..*&quot; TermoCompromisso : oferece
-Seguradora &quot;1&quot; -- &quot;0..*&quot; TermoCompromisso : cobre
-Coordenador &quot;1&quot; -- &quot;0..*&quot; TermoCompromisso : supervisiona
+Aluno "1" -- "0..*" TermoCompromisso : assina
+Empresa "1" -- "0..*" TermoCompromisso : oferece
+Seguradora "1" -- "0..*" TermoCompromisso : cobre
+Coordenador "1" -- "0..*" TermoCompromisso : supervisiona
 @enduml
+'''
