@@ -86,7 +86,8 @@ title: Diagrama de Casos de Uso
 	- 3a. Primeio acesso do Usuário
 		- 3a1. Sistema redireciona o Usuário para a página de edição de perfil
 
-```plantuml
+
+```kroki-plantuml
 @startuml
 :Usuario: -> (Fazer Login)
 @enduml
