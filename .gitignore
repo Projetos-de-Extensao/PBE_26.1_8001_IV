@@ -1,3 +1,5 @@
+
+.venv/
 # MkDocs
 site/
 .mkdocs.yml.bak

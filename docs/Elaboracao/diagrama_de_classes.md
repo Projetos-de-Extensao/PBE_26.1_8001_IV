@@ -85,3 +85,57 @@ title: Diagrama de Casos de Uso
 		- 2a1. Sistema exibe mensagem de erro
 	- 3a. Primeio acesso do Usuário
 		- 3a1. Sistema redireciona o Usuário para a página de edição de perfil
+
+@startuml
+&#39; Configurações visuais para o diagrama ficar limpo
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+left to right direction
+
+class Aluno {
+    - String matricula
+    - String nome
+    - String email
+    - String curso
+    + realizarLogin()
+    + solicitarTermo()
+}
+
+class Empresa {
+    - String cnpj
+    - String razaoSocial
+    - String endereco
+    - String representanteLegal
+    + cadastrarVaga()
+}
+
+class TermoCompromisso {
+    - Date dataInicio
+    - Date dataFim
+    - Integer cargaHoraria
+    - Double valorBolsa
+    - String status
+    + validarDatas()
+    + calcularDuracao()
+}
+
+class Seguradora {
+    - String nomeSeguradora
+    - String numeroApolice
+    + validarSeguro()
+}
+
+class Coordenador {
+    - String siape
+    - String departamento
+    + analisarDocumento()
+    + homologarEstagio()
+}
+
+&#39; Relacionamentos e Cardinalidade
+Aluno &quot;1&quot; -- &quot;0..*&quot; TermoCompromisso : assina
+Empresa &quot;1&quot; -- &quot;0..*&quot; TermoCompromisso : oferece
+Seguradora &quot;1&quot; -- &quot;0..*&quot; TermoCompromisso : cobre
+Coordenador &quot;1&quot; -- &quot;0..*&quot; TermoCompromisso : supervisiona
+
+@enduml
