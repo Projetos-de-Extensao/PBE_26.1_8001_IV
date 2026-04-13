@@ -1,53 +1,82 @@
-# Documento de Levantamento de Requisitos
-## Sistema de Gestão de Estágios
+Levantamento de Requisitos
+Sistema: Sistema de Gestão de Estágios
 
 ---
 
-## Objetivo do Sistema
-O sistema tem como objetivo facilitar o gerenciamento de estágios, permitindo que alunos, empresas e administradores interajam no processo de divulgação de vagas, candidatura e acompanhamento.
+## 1. Identificação dos Stakeholders
+
+**Alunos:** Pessoas que buscam oportunidades de estágio e desejam se candidatar às vagas disponíveis.
+
+**Empresas:** Estabelecimentos que oferecem vagas de estágio e avaliam candidatos.
+
+**Administrador:** Responsável por gerenciar o sistema, usuários e validar vagas cadastradas.
 
 ---
 
-## Requisitos Funcionais (RF)
+## 2. Requisitos Funcionais
 
-### Aluno
-- RF01: O sistema deve permitir o cadastro de alunos  
-- RF02: O sistema deve permitir autenticação (login)  
-- RF03: O sistema deve permitir visualizar vagas de estágio disponíveis  
-- RF04: O sistema deve permitir candidatura em vagas  
-- RF05: O sistema deve permitir acompanhar o status da candidatura  
-- RF06: O sistema deve permitir editar informações do perfil  
-
-### Empresa
-- RF07: O sistema deve permitir cadastro de empresas  
-- RF08: O sistema deve permitir autenticação de empresas  
-- RF09: O sistema deve permitir cadastrar vagas de estágio  
-- RF10: O sistema deve permitir visualizar candidatos  
-- RF11: O sistema deve permitir aprovar ou rejeitar candidatos  
-
-### Administrador
-- RF12: O sistema deve permitir gerenciar usuários  
-- RF13: O sistema deve permitir aprovar vagas antes da publicação  
-- RF14: O sistema deve permitir monitorar candidaturas  
-- RF15: O sistema deve permitir gerar relatórios do sistema  
+| ID   | Descrição                                                                 | Prioridade |
+|------|-------------------------------------------------------------------------|------------|
+| RF01 | O aluno deve poder se cadastrar no sistema                              | Alta       |
+| RF02 | O aluno deve poder realizar login                                       | Alta       |
+| RF03 | O aluno deve visualizar vagas de estágio disponíveis                    | Alta       |
+| RF04 | O aluno deve se candidatar a vagas                                      | Alta       |
+| RF05 | O aluno deve acompanhar o status da candidatura                         | Média      |
+| RF06 | A empresa deve poder se cadastrar no sistema                            | Alta       |
+| RF07 | A empresa deve cadastrar vagas de estágio                               | Alta       |
+| RF08 | A empresa deve visualizar candidatos                                    | Alta       |
+| RF09 | A empresa deve aprovar ou rejeitar candidatos                           | Alta       |
+| RF10 | O administrador deve gerenciar usuários                                 | Média      |
+| RF11 | O administrador deve aprovar vagas antes da publicação                  | Alta       |
+| RF12 | O sistema deve gerar relatórios                                         | Baixa      |
 
 ---
 
-## Requisitos Não Funcionais (RNF)
+## 3. Requisitos Não Funcionais
 
-- RNF01: O sistema deve ser acessível via navegador web  
-- RNF02: O sistema deve possuir interface amigável e intuitiva  
-- RNF03: O sistema deve garantir a segurança dos dados dos usuários  
-- RNF04: O sistema deve apresentar bom desempenho (resposta rápida)  
-- RNF05: O sistema deve estar disponível continuamente  
-- RNF06: O sistema deve suportar múltiplos acessos simultâneos  
+**Performance:** O sistema deve apresentar tempo de resposta rápido mesmo com múltiplos usuários.
+
+**Segurança:** Os dados dos usuários devem ser protegidos, com autenticação segura.
+
+**Usabilidade:** A interface deve ser simples, intuitiva e de fácil navegação.
 
 ---
 
-## Regras de Negócio (RN)
+## 4. Exemplo de Caso de Uso
 
-- RN01: O aluno deve estar cadastrado para se candidatar a uma vaga  
-- RN02: A empresa só pode visualizar candidatos de suas vagas  
-- RN03: As vagas devem ser aprovadas pelo administrador antes de serem publicadas  
-- RN04: O aluno só pode acompanhar suas próprias candidaturas  
-- RN05: Cada candidatura deve possuir um status (pendente, aprovado ou rejeitado)
+### UC01 - Candidatar-se a Vaga
+
+**Atores:** Aluno, Sistema.
+
+**Pré-condição:** O aluno deve estar cadastrado e logado no sistema.
+
+**Fluxo Principal:**
+1. O aluno acessa a lista de vagas disponíveis.
+2. O aluno seleciona uma vaga de interesse.
+3. O aluno visualiza os detalhes da vaga.
+4. O aluno clica em "Candidatar-se".
+5. O sistema registra a candidatura e confirma a ação.
+
+**Fluxos Alternativos:**
+- FA1: Aluno não está logado → Sistema solicita login.
+- FA2: Vaga indisponível → Sistema informa que a vaga foi encerrada.
+
+**Pós-condição:** A candidatura é registrada no sistema e fica disponível para análise da empresa.
+
+---
+
+## 5. Protótipo (Exemplo Simplificado)
+
+**Tela de Vagas:** Lista de vagas com filtros (área, localização, empresa).
+
+**Tela de Detalhes:** Informações da vaga + botão "Candidatar-se".
+
+**Tela de Perfil:** Dados do aluno + histórico de candidaturas.
+
+---
+
+## 6. Validação
+
+**Validação com Usuários:** Confirmar se o processo de candidatura é simples e intuitivo.
+
+**Teste com Empresas:** Verificar se o fluxo de aprovação de candidatos atende às necessidades.
