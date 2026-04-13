@@ -89,44 +89,6 @@ title: Diagrama de Casos de Uso
 
 ```plantuml
 @startuml
-skinparam classAttributeIconSize 0
-skinparam monochrome true
-left to right direction
-
-class Aluno {
-    - String matricula
-    - String nome
-    - String email
-    - String curso
-    + realizarLogin()
-    + solicitarTermo()
-}
-
-class Empresa {
-    - String cnpj
-    - String razaoSocial
-    - String endereco
-    - String representanteLegal
-    + cadastrarVaga()
-}
-
-class TermoCompromisso {
-    - String status
-    + validarDatas()
-}
-
-class Seguradora {
-    - String nomeSeguradora
-}
-
-class Coordenador {
-    - String siape
-    + analisarDocumento()
-}
-
-Aluno "1" -- "0..*" TermoCompromisso : assina
-Empresa "1" -- "0..*" TermoCompromisso : oferece
-Seguradora "1" -- "0..*" TermoCompromisso : cobre
-Coordenador "1" -- "0..*" TermoCompromisso : supervisiona
+:Usuario: -> (Fazer Login)
 @enduml
 ```
