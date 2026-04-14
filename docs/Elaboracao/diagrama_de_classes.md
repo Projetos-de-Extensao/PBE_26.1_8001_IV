@@ -1,94 +1,80 @@
 ---
-id: diagrama_de_casos de uso
-title: Diagrama de Casos de Uso
+id: diagrama_de_classes
+title: Diagrama de Classes
 ---
 
-## Casos de Uso
+## Classes:
 
-### Descrição:
+### Detalhamento das Entidades e Atributos
 
-- Contas
-	- Criação
-	- Entrada
-	- Alteração
-	- Recuperar Senha
-	- Exclusão Lógica
-	- Visualização
+A tabela abaixo descreve os dados que cada classe será responsável por armazenar no sistema de gestão de estágios, servindo como base para o desenvolvimento do banco de dados.
 
-- Perfis
-	- Edição
-	- Pesquisar
-	- Visualização
-	- Seguir/Deixar de Seguir
+## Dicionário de Classes (Entidades do Sistema)
 
-- Postagens (Público) 	 	
-	- Criação
-	- Exclusão
-	- Interação
-	- Visualização
+| Classe | Atributo | Descrição | Regra de Negócio |
+| :--- | :--- | :--- | :--- |
+| **Aluno** | `matricula` | ID único do estudante | Identificação obrigatória Ibmec |
+| **Empresa** | `cnpj` | Cadastro da empresa | Identificação do vínculo empregatício |
+| **Empresa** | `acordo_cooperacao` | Número do convênio | Deve estar ativo para permitir o estágio |
+| **Estágio** | `data_inicio` | Início das atividades | Validação de 30 dias de retroatividade |
+| **Estágio** | `data_fim` | Término previsto | Soma de períodos não pode exceder 24 meses |
+| **Estágio** | `apolice_seguro` | Número da apólice | Obrigatório para emissão do contrato |
+| **Estágio** | `status_estagio` | Fase atual do contrato | Aberto / Ativo / Pendente Doc / Encerrado|
+| **Documento** | `data_recebimento` | Entrega na secretaria | Inicia o SLA de 5 dias úteis |
+| **Documento** | `status` | Situação da assinatura | Pendente / Validado / Rejeitado |
+| **Supervisor**| `nome_supervisor` | Responsável técnico | Deve assinar a Avaliação de Desempenho |
 
-- Mensagens (Privado)
-	- Criação
-	- Exclusão
-	- Visualização
-
-- Galerias
-	- Albuns
-- Blogs
-- Grupos
-
-### Criação de uma conta no sistema
-
-* Atores:
-
-	- Usuário
-	- Sistema
-
-- Pré-Condições:
-	- Nenhuma
-
-* Fluxo Básico:
-    1. Usuário fornece e-mail, senha e confirmações
-    2. Dados do Usuário são validados pelo Sistema
-    3. Dados do Usuário são encriptados pelo Sistema
-    4. Dados do Usuário são persistidos pelo Sistema
-    5. Sistema gera um link com prazo de expiração
-    6. Sistema envia e-mail de verificação, com o link, para o Usuário
-    7. Usuário confirma o e-mail antes do link expirar
-    8. Sistema confirma que o Cadastro do Usuário foi realizado com sucesso
-    9. Sistema redireciona o Usuário para a página de Entrada
-
-- Fluxos Alternativos:
-	- 2a. E-mail do Usuário é inválido
-		2a1. Sistema exibe mensagem de erro
-	- 2b. Senha do Usuário não respeita regras de segurança
-		- 2b1. Sistema exibe mensagem de erro
-	- 3a. Usuário tenta confirmar o e-mail depois de o link expirar
-		- 3a1. Sistema sugere que o Usuário realize um novo Cadastro
-
-### Entrada do usuário no sistema
-
-- Atores:
-	- Usuário
-	- Sistema
-
-- Pré-Condições:
-	Usuário deve estar cadastrado
-
-- Fluxo Básico:
-    - 1. Usuário fornece e-mail e senha
-	- 2. Sistema autentica o Usuário
-	- 3. Sistema redireciona o Usuário para a página inicial
-
-- Fluxos Alternativos:
-	- 2a. Dados do Usuário Inválidos
-		- 2a1. Sistema exibe mensagem de erro
-	- 3a. Primeio acesso do Usuário
-		- 3a1. Sistema redireciona o Usuário para a página de edição de perfil
-
+## Arquitetura do Sistema (Visão Geral)
 
 ```kroki-plantuml
 @startuml
-:Usuario: -> (Fazer Login)
+' Configurações de estilo para clareza visual
+skinparam monochrome true
+skinparam shadowing false
+hide circle
+hide members
+
+title Diagrama de Estrutura de Estágios - Ibmec (Foco em Classes)
+
+' Definição das Classes Principais
+class Aluno
+class Empresa
+class Supervisor
+class Secretaria
+class Estagio
+
+' Agrupamento de Documentos para organização visual
+package "Documentação e Fluxo" {
+    abstract class Documento
+    class TermoCompromisso
+    class TermoAditivo
+    class TermoRescisao
+    class RelatorioAcompanhamento
+    class AvaliacaoDesempenho
+}
+
+' Relacionamentos e Multiplicidade
+Aluno "1" -- "0..*" Estagio : realiza >
+Empresa "1" -- "0..*" Estagio : concede >
+Empresa "1" *-- "1..*" Supervisor : possui >
+Estagio "1" *-- "1..*" Documento : possui >
+
+Secretaria "1" -- "0..*" Documento : valida >
+Supervisor "1" -- "0..*" AvaliacaoDesempenho : preenche >
+
+' Hierarquia de Tipos de Documentos
+Documento <|-- TermoCompromisso
+Documento <|-- TermoAditivo
+Documento <|-- TermoRescisao
+Documento <|-- RelatorioAcompanhamento
+Documento <|-- AvaliacaoDesempenho
+
+' Notas de Regras de Negócio
+note "SLA: 5 dias úteis" as N1
+Secretaria .. N1
+N1 .. Documento
+
+note "Limite: 24 meses" as N2
+N2 .. TermoAditivo
 @enduml
 ```
