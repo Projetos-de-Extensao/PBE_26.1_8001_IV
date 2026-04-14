@@ -36,7 +36,7 @@ Sistema: Sistema de Gestão de Estágios
 
 **Performance:** O sistema deve apresentar tempo de resposta rápido mesmo com múltiplos usuários.
 
-**Segurança:** Os dados dos usuários devem ser protegidos, com autenticação segura.
+**Segurança:** Os dados dos usuários devem ser protegidos, com autenticação segura. 
 
 **Usabilidade:** A interface deve ser simples, intuitiva e de fácil navegação.
 
