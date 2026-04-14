@@ -1,3 +1,9 @@
+---
+id: diagrama_de_casos_de_uso
+title: Diagrama de Casos de Uso
+---
+
+
 ```kroki-plantuml
 @startuml Sistema_Gestao_Estagios_CasosDeUso
 
