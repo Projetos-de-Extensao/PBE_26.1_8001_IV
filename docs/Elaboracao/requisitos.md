@@ -45,134 +45,160 @@ Sistema: Sistema de Gestão de Estágios
 ## 4. Casos de Uso
 
 ### UC01 - Cadastro de Aluno
-Atores: Aluno, Sistema.  
-Pré-condição: Usuário não possui cadastro.  
-Fluxo Principal:
+**Atores:** Aluno, Sistema.  
+**Pré-condição:** Usuário não possui cadastro.  
+**Fluxo Principal:**
 1. O aluno acessa a tela de cadastro.
 2. O aluno preenche seus dados pessoais.
 3. O aluno envia o formulário.
 4. O sistema valida os dados e cria a conta.
-Fluxos Alternativos:
+**Fluxos Alternativos:**
 - FA1: Dados inválidos → Sistema solicita correção.
-Pós-condição: Conta de aluno criada com sucesso.
+**Pós-condição:** Conta de aluno criada com sucesso.
 
 ---
 
 ### UC02 - Login
-Atores: Aluno/Empresa/Administrador, Sistema.  
-Pré-condição: Usuário cadastrado.  
-Fluxo Principal:
+**Atores:** Aluno/Empresa/Administrador, Sistema.  
+**Pré-condição:** Usuário cadastrado.  
+**Fluxo Principal:**
 1. O usuário acessa a tela de login.
 2. O usuário insere e-mail e senha.
 3. O sistema valida as credenciais.
 4. O sistema permite acesso.
-Fluxos Alternativos:
+**Fluxos Alternativos:**
 - FA1: Credenciais inválidas → Sistema exibe erro.
-Pós-condição: Usuário autenticado no sistema.
+**Pós-condição:** Usuário autenticado no sistema.
 
 ---
 
 ### UC03 - Visualizar Vagas
-Atores: Aluno, Sistema.  
-Pré-condição: Usuário logado.  
-Fluxo Principal:
+**Atores:** Aluno, Sistema.  
+**Pré-condição:** Usuário logado.  
+**Fluxo Principal:**
 1. O aluno acessa a lista de vagas.
 2. O sistema exibe vagas disponíveis.
 3. O aluno pode aplicar filtros.
-Fluxos Alternativos:
+**Fluxos Alternativos:**
 - FA1: Nenhuma vaga disponível → Sistema informa.
-Pós-condição: Lista de vagas exibida.
+**Pós-condição:** Lista de vagas exibida.
 
 ---
 
 ### UC04 - Candidatar-se a Vaga
-Atores: Aluno, Sistema.  
-Pré-condição: Aluno logado.  
-Fluxo Principal:
+**Atores:** Aluno, Sistema.  
+**Pré-condição:** Aluno logado.  
+**Fluxo Principal:**
 1. O aluno seleciona uma vaga.
 2. O aluno clica em "Candidatar-se".
 3. O sistema registra a candidatura.
-Fluxos Alternativos:
+**Fluxos Alternativos:**
 - FA1: Vaga encerrada → Sistema informa indisponibilidade.
-Pós-condição: Candidatura registrada.
+**Pós-condição:** Candidatura registrada.
 
 ---
 
 ### UC05 - Acompanhar Candidatura
-Atores: Aluno, Sistema.  
-Pré-condição: Candidatura realizada.  
-Fluxo Principal:
+**Atores:** Aluno, Sistema.  
+**Pré-condição:** Candidatura realizada.  
+**Fluxo Principal:**
 1. O aluno acessa suas candidaturas.
-2. O sistema exibe o status.
-Fluxos Alternativos:
-- FA1: Nenhuma candidatura → Sistema informa.
-Pós-condição: Status visualizado.
+2. O sistema exibe o status da candidatura.
+**Fluxos Alternativos:**
+- FA1: Nenhuma candidatura encontrada → Sistema informa.
+**Pós-condição:** Status visualizado.
 
 ---
 
 ### UC06 - Cadastro de Empresa
-Atores: Empresa, Sistema.  
-Pré-condição: Empresa não cadastrada.  
-Fluxo Principal:
-1. A empresa acessa cadastro.
-2. Preenche dados institucionais.
-3. Envia formulário.
-4. Sistema valida e cria conta.
-Fluxos Alternativos:
+**Atores:** Empresa, Sistema.  
+**Pré-condição:** Empresa não cadastrada.  
+**Fluxo Principal:**
+1. A empresa acessa a tela de cadastro.
+2. Preenche os dados institucionais.
+3. Envia o formulário.
+4. O sistema valida e cria a conta.
+**Fluxos Alternativos:**
 - FA1: Dados inválidos → Sistema solicita correção.
-Pós-condição: Conta de empresa criada.
+**Pós-condição:** Conta de empresa criada.
 
 ---
 
 ### UC07 - Cadastro de Vaga
-Atores: Empresa, Sistema.  
-Pré-condição: Empresa logada.  
-Fluxo Principal:
-1. Empresa acessa área de vagas.
-2. Preenche informações da vaga.
-3. Envia cadastro.
-4. Sistema registra vaga.
-Fluxos Alternativos:
+**Atores:** Empresa, Sistema.  
+**Pré-condição:** Empresa logada.  
+**Fluxo Principal:**
+1. A empresa acessa a área de vagas.
+2. Preenche as informações da vaga.
+3. Envia o cadastro.
+4. O sistema registra a vaga.
+**Fluxos Alternativos:**
 - FA1: Dados incompletos → Sistema solicita correção.
-Pós-condição: Vaga cadastrada.
+**Pós-condição:** Vaga cadastrada.
 
 ---
 
 ### UC08 - Visualizar Candidatos
-Atores: Empresa, Sistema.  
-Pré-condição: Vaga cadastrada.  
-Fluxo Principal:
-1. Empresa acessa candidatos da vaga.
-2. Sistema lista candidatos.
-Fluxos Alternativos:
+**Atores:** Empresa, Sistema.  
+**Pré-condição:** Vaga cadastrada.  
+**Fluxo Principal:**
+1. A empresa acessa a lista de candidatos.
+2. O sistema exibe os candidatos.
+**Fluxos Alternativos:**
 - FA1: Nenhum candidato → Sistema informa.
-Pós-condição: Lista de candidatos exibida.
+**Pós-condição:** Lista de candidatos exibida.
 
 ---
 
 ### UC09 - Aprovar/Rejeitar Candidato
-Atores: Empresa, Sistema.  
-Pré-condição: Existem candidatos.  
-Fluxo Principal:
-1. Empresa seleciona candidato.
+**Atores:** Empresa, Sistema.  
+**Pré-condição:** Existem candidatos.  
+**Fluxo Principal:**
+1. A empresa seleciona um candidato.
 2. Escolhe aprovar ou rejeitar.
-3. Sistema atualiza status.
-Fluxos Alternativos:
+3. O sistema atualiza o status.
+**Fluxos Alternativos:**
 - FA1: Erro no sistema → Operação cancelada.
-Pós-condição: Status atualizado.
+**Pós-condição:** Status do candidato atualizado.
 
 ---
 
 ### UC10 - Gerenciar Usuários
-Atores: Administrador, Sistema.  
-Pré-condição: Admin logado.  
-Fluxo Principal:
-1. Administrador acessa painel.
-2. Visualiza usuários.
+**Atores:** Administrador, Sistema.  
+**Pré-condição:** Administrador logado.  
+**Fluxo Principal:**
+1. O administrador acessa o painel.
+2. Visualiza os usuários cadastrados.
 3. Edita ou remove usuários.
-Fluxos Alternativos:
+**Fluxos Alternativos:**
 - FA1: Usuário não encontrado → Sistema informa.
-Pós-condição: Usuários atualizados.
+**Pós-condição:** Usuários atualizados.
+
+---
+
+### UC11 - Aprovar Vaga
+**Atores:** Administrador, Sistema.  
+**Pré-condição:** Vaga cadastrada por empresa.  
+**Fluxo Principal:**
+1. O administrador acessa as vagas pendentes.
+2. Analisa os dados da vaga.
+3. Aprova ou rejeita a vaga.
+**Fluxos Alternativos:**
+- FA1: Dados inconsistentes → Vaga rejeitada.
+**Pós-condição:** Vaga publicada ou recusada.
+
+---
+
+### UC12 - Gerar Relatórios
+**Atores:** Administrador, Sistema.  
+**Pré-condição:** Sistema com dados cadastrados.  
+**Fluxo Principal:**
+1. O administrador acessa a área de relatórios.
+2. Seleciona os critérios.
+3. O sistema gera o relatório.
+**Fluxos Alternativos:**
+- FA1: Sem dados suficientes → Sistema informa.
+**Pós-condição:** Relatório gerado com sucesso.
 
 ---
 

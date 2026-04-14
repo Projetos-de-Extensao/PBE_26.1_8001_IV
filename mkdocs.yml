@@ -96,12 +96,8 @@ plugins:
   - minify:
       minify_html: true
   - search
-  - kroki:
-      server: https://kroki.io
-      EnableSmartLink: false
-      FileTypes:
-        - plantuml
-        
+  - kroki
+  
 theme:
   name: material
   logo: assets/ibmec_logo.png
