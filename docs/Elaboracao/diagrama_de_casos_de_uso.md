@@ -1,8 +1,3 @@
----
-id: diagrama_de_casos de uso
-title: Diagrama de Casos de Uso
----
-
 ```kroki-plantuml
 @startuml Sistema_Gestao_Estagios_CasosDeUso
 
@@ -158,13 +153,13 @@ FA11 .> UC11_1 : <<extend>>
 FA12 .> UC12_2 : <<extend>>
 
 note right of UC04
-  **Pré-condição**: Aluno logado.
-  **Pós-condição**: Candidatura registrada.
+  Pré-condição: Aluno logado.
+  Pós-condição: Candidatura registrada.
 end note
 
 note right of UC11
-  **Pré-condição**: Vaga cadastrada pela empresa.
-  **Pós-condição**: Vaga publicada ou recusada.
+  Pré-condição: Vaga cadastrada pela empresa.
+  Pós-condição: Vaga publicada ou recusada.
 end note
 
 @enduml
