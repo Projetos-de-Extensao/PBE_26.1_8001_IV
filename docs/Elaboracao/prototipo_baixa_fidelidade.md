@@ -5,13 +5,13 @@ title: Protótipo de Baixa Fidelidade
 
 ## Introdução
 
-<p align = "justify">
+<p align="justify">
 A construção do protótipo de alta fidelidade auxilia a equipe de desenvolvimento a encontrar um nível de detalhes abrangentes, extrair funcionalidades, testar usabilidade, e também fornece uma base para o gerenciamento do projeto pois com o protótipo é possível realizar estimativas de quanto tempo será necessário desempenhar em cada funcionalidade.
 </p>
 
 ## Metodologia
 
-<p align = "justify">
+<p align="justify">
 Iniciamos o projeto através dos levantamentos iniciais da equipe, após discussões a ferramenta Figma foi selecionada para produzir o protótipo de alta fidelidade com auxílio do Material Design Color Tool.
 </p>
 
@@ -21,6 +21,7 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
 
 ### Tela Login
 
+```kroki-plantuml
 @startsalt
 {
   Sistema de Gestão de Estágios
@@ -34,9 +35,12 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   Não tem conta? | "Cadastre-se"
 }
 @endsalt
+```
 
-### Tela Cadastro Aluno
+## Tela Cadastro Aluno
 
+
+```kroki-plantuml
 @startsalt
 {
   Cadastro de Aluno - Primeiro acesso
@@ -55,9 +59,12 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   Já tem conta? | "Faça login"
 }
 @endsalt
+```
 
-### Tela Cadastro Empresa
+## Tela Cadastro Empresa
 
+
+```kroki-plantuml
 @startsalt
 {
   Cadastro de Empresa
@@ -74,9 +81,12 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   Já tem conta? | "Faça login"
 }
 @endsalt
+```
 
-### Tela inicial - Aluno
+## Tela inicial - Aluno
 
+
+```kroki-plantuml
 @startsalt
 {+
   Olá, [Nome do Aluno] | [ Sair ]
@@ -101,13 +111,14 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   }
 }
 @endsalt
+```
 
-### Tela de candidatura - Visualização, confirmação e acompanhamento
+## Tela de candidatura - Visualização, confirmação e acompanhamento
 
-<p align = "justify">
-Visualização
-</p>
+### Visualização
 
+
+```kroki-plantuml
 @startsalt
 {+
   <b>Detalhes da Vaga
@@ -133,11 +144,12 @@ Visualização
   [  Confirmar Candidatura  ] | [ Voltar para Vagas ]
 }
 @endsalt
+```
 
-<p align = "justify">
-Confirmação
-</p>
+### Confirmação
 
+
+```kroki-plantuml
 @startsalt
 {+
   Candidatura Registrada
@@ -152,11 +164,12 @@ Confirmação
   [ Ver Minhas Candidaturas ] | [ Voltar para Vagas ]
 }
 @endsalt
+```
 
-<p align = "justify">
-Acompanhamento
-</p>
+### Acompanhamento
 
+
+```kroki-plantuml
 @startsalt
 {+
   Olá, [Nome do Aluno] | [ Sair ]
@@ -171,12 +184,14 @@ Acompanhamento
   }
 }
 @endsalt
+```
 
-### Telas de documentação
+## Telas de documentação
 
-<p align = "justify">
-Termo de compromisso
+### Termo de compromisso
 
+
+```kroki-plantuml
 @startsalt
 {+
   Olá, [Nome do Aluno] | [ Sair ]
@@ -202,11 +217,12 @@ Termo de compromisso
   [ Enviar Documento ] | [ Enviar Relatório Semestral ]
 }
 @endsalt
+```
 
-<p align = "justify">
-Upload de documentos
-</p>
+### Upload de documentos
 
+
+```kroki-plantuml
 @startsalt
 {+
   Olá, [Nome do Aluno] | [ Sair ]
@@ -226,11 +242,11 @@ Upload de documentos
   [   Enviar Documento   ]
 }
 @endsalt
+``` 
 
-<p align = "justify">
-Envio de relatório
-</p>
+### Envio de relatório
 
+```kroki-plantuml
 @startsalt
 {+
   Olá, [Nome do Aluno] | [ Sair ]
@@ -250,12 +266,12 @@ Envio de relatório
   .
   [   Enviar Relatório   ]
 }
-@endsalt
+@endsalt`
+```
 
-<p align = "justify">
-Resultado de validação
-</p>
+### Resultado de validação
 
+```kroki-plantuml
 @startsalt
 {+
   Resultado da Validação
@@ -273,13 +289,13 @@ Resultado de validação
   [ Enviar Outro Documento ] | [ Voltar ]
 }
 @endsalt
+```
 
-### Tela Empresa
+## Tela Empresa
 
-<p align = "justify">
-Cadastro de vaga
-</p>
+### Cadastro de vaga
 
+```kroki-plantuml
 @startsalt
 {+
   Olá, [Nome da Empresa] | [ Sair ]
@@ -299,11 +315,11 @@ Cadastro de vaga
   [   Enviar para Aprovação   ]
 }
 @endsalt
+```
 
-<p align = "justify">
-Visualização de candidatura
-</p>
+### Visualização de candidatura
 
+```kroki-plantuml
 @startsalt
 {+
   Olá, [Nome da Empresa] | [ Sair ]
@@ -319,13 +335,14 @@ Visualização de candidatura
   }
 }
 @endsalt
+```
 
-### Tela de relatórios - Coordenaçao
+## Tela de relatórios - Coordenaçao
 
-<p align = "justify">
-Relatórios pendentes
-</p>
 
+### Relatórios pendentes
+
+```kroki-plantuml
 @startsalt
 {+
   Painel de Relatórios | [ Sair ]
@@ -340,11 +357,12 @@ Relatórios pendentes
   }
 }
 @endsalt
+```
 
-<p align = "justify">
-Avaliação de relatorios - Validação aprovada
-</p>
 
+### Avaliação de relatorios - Validação aprovada
+
+```kroki-plantuml
 @startsalt
 {+
   Relatório — João Silva | [ Voltar ]
@@ -369,7 +387,8 @@ Avaliação de relatorios - Validação aprovada
   [   Confirmar Avaliação   ]
 }
 @endsalt
-
+```
+```kroki-plantuml
 @startsalt
 {+
   Relatório — João Silva | [ Voltar ]
@@ -394,9 +413,11 @@ Avaliação de relatorios - Validação aprovada
   [   Confirmar Avaliação   ]
 }
 @endsalt
+```
 
 ### Tela Inicial Administrador
 
+```kroki-plantuml
 @startsalt
 {+
   Painel do Administrador | [ Sair ]
@@ -420,9 +441,11 @@ Avaliação de relatorios - Validação aprovada
   }
 }
 @endsalt
+```
 
 ### Tela Edição de Usuário - Administrador
 
+```kroki-plantuml
 @startsalt
 {+
   Editar Usuário — João Silva | [ Voltar ]
@@ -439,7 +462,8 @@ Avaliação de relatorios - Validação aprovada
   [   Salvar Alterações   ] | [ Cancelar ]
 }
 @endsalt
-
+```
+```kroki-plantuml
 @startsalt
 {+
   Editar Usuário — João Silva | [ Voltar ]
@@ -456,7 +480,9 @@ Avaliação de relatorios - Validação aprovada
   [   Salvar Alterações   ] | [ Cancelar ]
 }
 @endsalt
+```
 
+```kroki-plantuml
 @startsalt
 {+
   Remover Usuário
@@ -473,9 +499,11 @@ Avaliação de relatorios - Validação aprovada
   [   Confirmar Remoção   ] | [ Cancelar ]
 }
 @endsalt
+```
 
 ### Tela Vagas - Administrador
 
+```kroki-plantuml
 @startsalt
 {+
   Painel do Administrador | [ Sair ]
@@ -490,9 +518,11 @@ Avaliação de relatorios - Validação aprovada
   }
 }
 @endsalt
+```
 
 ### Tela Relatórios - Administrador
 
+```kroki-plantuml
 @startsalt
 {+
   Painel do Administrador | [ Sair ]
@@ -507,7 +537,8 @@ Avaliação de relatorios - Validação aprovada
   }
 }
 @endsalt
-
+```
+```kroki-plantuml
 @startsalt
 {+
   Painel do Administrador | [ Sair ]
@@ -521,72 +552,12 @@ Avaliação de relatorios - Validação aprovada
   [   Emitir Relatório   ]
 }
 @endsalt
+```
 
-### Tela de inscrição em torneio
 
-[![Prototipo 13](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+### Versão 2.0 (EM BREVE)
 
-<p align = "justify">
-Na primeira versão do protótipo utilizamos a ferramenta <a href="https://material.io/resources/color/#!/?view.left=0&view.right=0">Material Design Color Tool</a>  para auxiliar na criação da paleta de cores do aplicativo, definimos as cores base do aplicativo mas as cores definidas para as telas 12 e 13 ainda não foram decididas.
-</p>
 
-### Versão 2.0
-
-### Versão 1.0
-
-### Tela Login
-
-[![Prototipo 1](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Cadastro 1
-
-[![Prototipo 2](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Cadastro 2
-
-[![Prototipo 3](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Esqueceu Senha
-
-[![Prototipo 4](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela do Feed
-
-[![Prototipo 5](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Feed com configurações
-
-[![Prototipo 6](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Perfil
-
-[![Prototipo 7](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Cadastrar torneio 1
-
-[![Prototipo 8](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Cadastrar torneio 2
-
-[![Prototipo 9](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Cadastrar torneio 3
-
-[![Prototipo 10](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela Cadastrar torneio 4
-
-[![Prototipo 11](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela com meus torneios
-
-[![Prototipo 12](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-### Tela de inscrição em torneio
-
-[![Prototipo 13](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
-
-link para o `<a href="https://www.figma.com/">`Protótipo`</a>`
 
 ## Conclusão
 
@@ -594,19 +565,12 @@ link para o `<a href="https://www.figma.com/">`Protótipo`</a>`
 A partir da elaboração do protótipo foi possível ter uma noção inicial da interface do usuário, definindo fluxo, paleta de cores, botões, app bars e diversas outras funcionalidades
 </p>
 
-## Referências
 
-> Material Design Color Tool. Disponível em:  https://material.io/resources/color/#!/?view.left=0&view.right=0
-
-> PMI. Um guia do conhecimento em gerenciamento de projetos. Guia PMBOK® 5a. ed. EUA: Project Management Institute, 2013.
-
-> Ferramenta Figma. Disponível em https://www.figma.com
 
 ## Autor(es)
 
 | Data     | Versão | Descrição                            | Autor(es)                                                                            |
 | -------- | ------- | -------------------------------------- | ------------------------------------------------------------------------------------ |
-| 07/09/20 | 1.0     | Criação do documento                 | Lucas Alexandre e Matheus Estanislau                                                 |
-| 07/09/20 | 1.1     | Adicionado as imagens do protótipo    | Lucas Alexandre e Matheus Estanislau                                                 |
-| 07/09/20 | 1.2     | Adicionado conclusão e referências   | Lucas Alexandre e Matheus Estanislau                                                 |
-| 26/10/20 | 2.0     | Adicionada a versão 2.0 do protótipo | João Pedro, Lucas Alexandre, Matheus Estanislau, Moacir Mascarenha e Renan Cristyan |
+| 15/04/26 | 1.0     | Criação do documento                   | Giovanna Perrone                                                 |
+| 16/04/26 | 1.1     | Adicionado as imagens do protótipo     | Giovanna Perrone                                                 |                                              |
+
