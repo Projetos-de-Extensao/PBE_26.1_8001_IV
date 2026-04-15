@@ -1,94 +1,75 @@
 ---
-id: diagrama_de_casos de uso
-title: Diagrama de Casos de Uso
+id: diagrama_de_classes
+title: Diagrama de Classes
 ---
 
-## Casos de Uso
+# Projeto de Arquitetura: Diagrama de Classes
 
-### Descrição:
+Este documento detalha a estrutura de dados e as relações entre as entidades do Sistema de Gestão de Estágios, integrando as regras da Lei 11.788/08 e a lógica de validação automática.
 
-- Contas
-	- Criação
-	- Entrada
-	- Alteração
-	- Recuperar Senha
-	- Exclusão Lógica
-	- Visualização
+## Detalhamento das Entidades e Atributos
 
-- Perfis
-	- Edição
-	- Pesquisar
-	- Visualização
-	- Seguir/Deixar de Seguir
+A tabela abaixo descreve os atributos planejados, tratando o Orientador como uma entidade de dados vinculada à Instituição de Ensino, conforme as diretrizes de automação do sistema.
 
-- Postagens (Público) 	 	
-	- Criação
-	- Exclusão
-	- Interação
-	- Visualização
+| Classe | Atributo | Tipo | Descrição |
+| :--- | :--- | :--- | :--- |
+| **Usuário** | `nome`, `email`, `senha` | String | Dados de acesso para perfis que interagem com o sistema (Aluno/Empresa). |
+| **Aluno** | `cpf`, `matricula` | String | Identificadores para fins de Termo de Compromisso e histórico acadêmico. |
+| | `curso`, `periodo` | String/Int | Critérios para validação automática da elegibilidade ao estágio. |
+| **Empresa** | `cnpj`, `razaoSocial` | String | Identificação jurídica da parte concedente (empresa). |
+| | `supervisor` | String | Nome do profissional responsável pelo acompanhamento na empresa. |
+| **Instituição** | `nomeUnidade` | String | Identificação do campus universitário (ex: Ibmec RJ / Ibmec MG). |
+| | `coordenador` | String | Responsável institucional pela validação final do convênio de estágio. |
+| **Orientador** | `nome`, `siape` | String | Identificação do docente responsável pela análise pedagógica. |
+| | `areaAtuacao` | String | Vincula o professor ao curso e área de conhecimento do aluno. |
+| **Termo de Compromisso**| `dataInicio`, `dataFim` | Date | Período de vigência para controle do limite legal de 2 anos. |
+| | `apoliceSeguro` | String | Número da apólice obrigatória contra acidentes (Art. 9º da Lei 11.788). |
+| | `statusJuridico` | Enum | Estado do contrato: `Pendente`, `Ativo` ou `Concluído`. |
+| **Documento** | `tipo` | String | Categoria do arquivo (TCE, Plano de Atividades ou Relatório). |
+| | `hashSHA256` | String | Identificador de integridade gerado automaticamente no upload. |
+| | `valido` | Boolean | Resultado da validação automática realizada pelo sistema. |
+| **Relatório Semestral**| `resumoAtividades` | Text | Conteúdo enviado periodicamente pelo aluno a cada 6 meses. |
+| | `dataReferencia` | Date | Data para controle do envio obrigatório (Art. 7º). |
 
-- Mensagens (Privado)
-	- Criação
-	- Exclusão
-	- Visualização
+## Diagrama de Classes Conceitual
 
-- Galerias
-	- Albuns
-- Blogs
-- Grupos
-
-### Criação de uma conta no sistema
-
-* Atores:
-
-	- Usuário
-	- Sistema
-
-- Pré-Condições:
-	- Nenhuma
-
-* Fluxo Básico:
-    1. Usuário fornece e-mail, senha e confirmações
-    2. Dados do Usuário são validados pelo Sistema
-    3. Dados do Usuário são encriptados pelo Sistema
-    4. Dados do Usuário são persistidos pelo Sistema
-    5. Sistema gera um link com prazo de expiração
-    6. Sistema envia e-mail de verificação, com o link, para o Usuário
-    7. Usuário confirma o e-mail antes do link expirar
-    8. Sistema confirma que o Cadastro do Usuário foi realizado com sucesso
-    9. Sistema redireciona o Usuário para a página de Entrada
-
-- Fluxos Alternativos:
-	- 2a. E-mail do Usuário é inválido
-		2a1. Sistema exibe mensagem de erro
-	- 2b. Senha do Usuário não respeita regras de segurança
-		- 2b1. Sistema exibe mensagem de erro
-	- 3a. Usuário tenta confirmar o e-mail depois de o link expirar
-		- 3a1. Sistema sugere que o Usuário realize um novo Cadastro
-
-### Entrada do usuário no sistema
-
-- Atores:
-	- Usuário
-	- Sistema
-
-- Pré-Condições:
-	Usuário deve estar cadastrado
-
-- Fluxo Básico:
-    - 1. Usuário fornece e-mail e senha
-	- 2. Sistema autentica o Usuário
-	- 3. Sistema redireciona o Usuário para a página inicial
-
-- Fluxos Alternativos:
-	- 2a. Dados do Usuário Inválidos
-		- 2a1. Sistema exibe mensagem de erro
-	- 3a. Primeio acesso do Usuário
-		- 3a1. Sistema redireciona o Usuário para a página de edição de perfil
-
+O diagrama abaixo apresenta a arquitetura de relações do sistema. Note que o **Orientador** é representado como uma entidade vinculada à Instituição, sem herança de login, focando na automação da validação.
 
 ```kroki-plantuml
-@startuml
-:Usuario: -> (Fazer Login)
+@startuml Sistema_Gestao_Estagios_DiagramaFinal
+
+' Configurações Visuais
+left to right direction
+skinparam shadowing false
+skinparam monochrome true
+hide circle
+hide methods
+hide attributes
+
+' Definição das Classes
+abstract class Usuario <<Abstract>>
+class Aluno
+class Empresa
+class InstituicaoEnsino
+class Orientador #fff9c4 
+class TermoCompromisso
+class Documento
+class RelatorioAtividades
+
+' Herança (Somente perfis com interação direta/login)
+Usuario <|-- Aluno
+Usuario <|-- Empresa
+
+' Relacionamentos e Multiplicidade
+InstituicaoEnsino "1" *-- "0..*" Orientador : possui >
+Orientador "1" -- "0..*" Aluno : supervisiona >
+Aluno "1" -- "0..*" TermoCompromisso : realiza >
+Empresa "1" -- "0..*" TermoCompromisso : cadastra >
+
+' Composição de Documentos e Relatórios
+TermoCompromisso "1" *-- "1..*" Documento : contém >
+Aluno "1" -- "0..*" RelatorioAtividades : envia >
+RelatorioAtividades "1" -- "1" Documento : materializa-se em >
+
 @enduml
 ```
