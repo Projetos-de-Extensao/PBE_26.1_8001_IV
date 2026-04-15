@@ -1,0 +1,612 @@
+---
+id: prototipo_baixa_fidelidade
+title: Protótipo de Baixa Fidelidade
+---
+
+## Introdução
+
+<p align = "justify">
+A construção do protótipo de alta fidelidade auxilia a equipe de desenvolvimento a encontrar um nível de detalhes abrangentes, extrair funcionalidades, testar usabilidade, e também fornece uma base para o gerenciamento do projeto pois com o protótipo é possível realizar estimativas de quanto tempo será necessário desempenhar em cada funcionalidade.
+</p>
+
+## Metodologia
+
+<p align = "justify">
+Iniciamos o projeto através dos levantamentos iniciais da equipe, após discussões a ferramenta Figma foi selecionada para produzir o protótipo de alta fidelidade com auxílio do Material Design Color Tool.
+</p>
+
+## Protótipo de alta fidelidade
+
+### Versão 1.0
+
+### Tela Login
+
+@startsalt
+{
+  Sistema de Gestão de Estágios
+  ==
+  .
+  Email:    | "email@exemplo.com    "
+  Senha:    | "*********************"
+  .
+  [   Entrar   ]
+  .
+  Não tem conta? | "Cadastre-se"
+}
+@endsalt
+
+### Tela Cadastro Aluno
+
+@startsalt
+{
+  Cadastro de Aluno - Primeiro acesso
+  ==
+  .
+  Nome:        | "                    "
+  Email:       | "                    "
+  Senha:       | "                    "
+  CPF:         | "                    "
+  Matrícula:   | "                    "
+  Curso:       | "                    "
+  Período:     | "                    "
+  .
+  [   Enviar Cadastro   ]
+  .
+  Já tem conta? | "Faça login"
+}
+@endsalt
+
+### Tela Cadastro Empresa
+
+@startsalt
+{
+  Cadastro de Empresa
+  ==
+  .
+  Razão Social: | "                    "
+  CNPJ:         | "                    "
+  Email:        | "                    "
+  Senha:        | "                    "
+  Supervisor:   | "                    "
+  .
+  [   Enviar Cadastro   ]
+  .
+  Já tem conta? | "Faça login"
+}
+@endsalt
+
+### Tela inicial - Aluno
+
+@startsalt
+{+
+  Olá, [Nome do Aluno] | [ Sair ]
+  ==
+  {T
+    + Menu
+    ++ Vagas Disponíveis
+    ++ Minhas Candidaturas
+    ++ Meus Documentos
+    ++ Meu Termo de Compromisso
+  }
+  ==
+  Vagas Disponíveis
+  --
+  Filtrar por: | ^Área de Atuação^ | [ Buscar ]
+  .
+  {#
+    Empresa        | Área          | Bolsa     | Ação
+    Empresa ABC    | TI            | R$ 1.500  | [ Candidatar-se ]
+    Empresa XYZ    | Engenharia    | R$ 1.200  | [ Candidatar-se ]
+    Empresa 123    | Administração | R$ 1.000  | [ Candidatar-se ]
+  }
+}
+@endsalt
+
+### Tela de candidatura - Visualização, confirmação e acompanhamento
+
+<p align = "justify">
+Visualização
+</p>
+
+@startsalt
+{+
+  <b>Detalhes da Vaga
+  ==
+  .
+  <b>Empresa:</b> | Empresa ABC
+  <b>Cargo:</b>   | Dev Backend (Júnior/Estágio)
+  <b>Local:</b>    | Rio de Janeiro, RJ (Híbrido)
+  <b>Bolsa:</b>    | A combinar
+  .
+  -- Descrição da Vaga --
+  {
+    Atuar no desenvolvimento de APIs REST utilizando Python e Java. 
+    Manutenção de bancos de dados e integração de sistemas legados.
+    Participação em reuniões de planning e daily com o time de engenharia.
+  }
+  .
+  -- Requisitos --
+  * Cursando Engenharia da Computação, Museologia ou áreas afins.
+  * Conhecimento básico em SQL e lógica de programação.
+  * Proatividade e vontade de aprender novas tecnologias.
+  .
+  [  Confirmar Candidatura  ] | [ Voltar para Vagas ]
+}
+@endsalt
+
+<p align = "justify">
+Confirmação
+</p>
+
+@startsalt
+{+
+  Candidatura Registrada
+  ==
+  .
+  Sua candidatura foi enviada com sucesso!
+  .
+  Empresa: | Empresa ABC
+  Vaga:    | Dev Backend
+  Status:  | Pendente
+  .
+  [ Ver Minhas Candidaturas ] | [ Voltar para Vagas ]
+}
+@endsalt
+
+<p align = "justify">
+Acompanhamento
+</p>
+
+@startsalt
+{+
+  Olá, [Nome do Aluno] | [ Sair ]
+  ==
+  Minhas Candidaturas
+  --
+  .
+  {#
+    Empresa        | Vaga         | Status
+    Empresa ABC    | Dev Backend  | Pendente
+    Empresa XYZ    | Estagiário   | Aprovado
+  }
+}
+@endsalt
+
+### Telas de documentação
+
+<p align = "justify">
+Termo de compromisso
+
+@startsalt
+{+
+  Olá, [Nome do Aluno] | [ Sair ]
+  ==
+  Meu Termo de Compromisso
+  --
+  .
+  Empresa:          | Empresa ABC
+  Supervisor:       | Carlos Mendes
+  Data de Início:   | 01/08/2025
+  Data de Término:  | 01/08/2026
+  Apólice de Seguro:| "123456-APL"
+  Status Jurídico:  | Ativo
+  .
+  Documentos Vinculados:
+  {#
+    Tipo                 | Válido
+    TCE                  | ✔ Sim
+    Plano de Atividades  | ✔ Sim
+    Relatório Semestral  | ⏳ Pendente
+  }
+  .
+  [ Enviar Documento ] | [ Enviar Relatório Semestral ]
+}
+@endsalt
+
+<p align = "justify">
+Upload de documentos
+</p>
+
+@startsalt
+{+
+  Olá, [Nome do Aluno] | [ Sair ]
+  ==
+  Enviar Documentos
+  --
+  .
+  Tipo de Documento:
+  () TCE
+  () Plano de Atividades
+  () Relatório Semestral
+  .
+  Arquivo: | "nenhum arquivo selecionado" | [ Escolher Arquivo ]
+  .
+  Hash SHA-256: | "gerado automaticamente"
+  .
+  [   Enviar Documento   ]
+}
+@endsalt
+
+<p align = "justify">
+Envio de relatório
+</p>
+
+@startsalt
+{+
+  Olá, [Nome do Aluno] | [ Sair ]
+  ==
+  Enviar Relatório Semestral
+  --
+  .
+  Data de Referência: | "dd/mm/aaaa"
+  .
+  Resumo de Atividades:
+  "                                        "
+  "                                        "
+  "                                        "
+  "                                        "
+  .
+  Anexar Documento: | "nenhum arquivo" | [ Escolher Arquivo ]
+  .
+  [   Enviar Relatório   ]
+}
+@endsalt
+
+<p align = "justify">
+Resultado de validação
+</p>
+
+@startsalt
+{+
+  Resultado da Validação
+  ==
+  .
+  Arquivo:          | plano_atividades.pdf
+  Tipo:             | Plano de Atividades
+  Hash SHA-256:     | "a3f5c...d91b"
+  .
+  --
+  () ✔ Documento válido. Arquivo aceito pelo sistema.
+  .
+  --
+  .
+  [ Enviar Outro Documento ] | [ Voltar ]
+}
+@endsalt
+
+### Tela Empresa
+
+<p align = "justify">
+Cadastro de vaga
+</p>
+
+@startsalt
+{+
+  Olá, [Nome da Empresa] | [ Sair ]
+  ==
+  Cadastrar Nova Vaga
+  --
+  .
+  Título da Vaga:  | "                    "
+  Área:            | "                    "
+  Bolsa (R$):      | "                    "
+  Carga Horária:   | "                    "
+  Descrição:       | "                    "
+  .
+  Data de Início:  | "dd/mm/aaaa"
+  Data de Término: | "dd/mm/aaaa"
+  .
+  [   Enviar para Aprovação   ]
+}
+@endsalt
+
+<p align = "justify">
+Visualização de candidatura
+</p>
+
+@startsalt
+{+
+  Olá, [Nome da Empresa] | [ Sair ]
+  ==
+  Candidatos para: Dev Backend
+  --
+  .
+  {#
+    Nome           | Curso      | Período | Ação
+    João Silva     | Engenharia | 5°      | [ Aprovar ] | [ Rejeitar ]
+    Maria Souza    | TI         | 4°      | [ Aprovar ] | [ Rejeitar ]
+    Carlos Lima    | ADS        | 6°      | [ Aprovar ] | [ Rejeitar ]
+  }
+}
+@endsalt
+
+### Tela de relatórios - Coordenaçao
+
+<p align = "justify">
+Relatórios pendentes
+</p>
+
+@startsalt
+{+
+  Painel de Relatórios | [ Sair ]
+  ==
+  Relatórios Aguardando Confirmação de Validação
+  --
+  .
+  {#
+    Aluno        | Curso      | Data Ref. | Status                | 
+    João Silva   | Engenharia | 06/2025   | Aguardando alteração  | 
+    Maria Souza  | TI         | 06/2025   | Aprovado pelo sistema | 
+  }
+}
+@endsalt
+
+<p align = "justify">
+Avaliação de relatorios - Validação aprovada
+</p>
+
+@startsalt
+{+
+  Relatório — João Silva | [ Voltar ]
+  ==
+  Aluno:           | João Silva
+  Curso:           | Engenharia de Software
+  Data Referência: | 06/2025
+  --
+  Resumo de Atividades:
+  {^
+    "Participei do desenvolvimento de APIs REST,    "
+    "realizei reuniões de planejamento e apoiei     "
+    "a equipe de QA nos testes de regressão.        "
+  }
+  --
+  Parecer do Orientador:
+  "                                        "
+  "                                        "
+  .
+  Relatório aprovado pelo sistema
+  .
+  [   Confirmar Avaliação   ]
+}
+@endsalt
+
+@startsalt
+{+
+  Relatório — João Silva | [ Voltar ]
+  ==
+  Aluno:           | João Silva
+  Curso:           | Engenharia de Software
+  Data Referência: | 06/2025
+  --
+  Resumo de Atividades:
+  {^
+    "Participei do desenvolvimento de APIs REST,    "
+    "realizei reuniões de planejamento e apoiei     "
+    "a equipe de QA nos testes de regressão.        "
+  }
+  --
+  Parecer do Orientador:
+  "                                        "
+  "                                        "
+  .
+  Relatório reprovado pelo sistema - Necessita alterações
+  .
+  [   Confirmar Avaliação   ]
+}
+@endsalt
+
+### Tela Inicial Administrador
+
+@startsalt
+{+
+  Painel do Administrador | [ Sair ]
+  ==
+  {T
+    + Menu
+    ++ Gerenciar Usuários
+    ++ Aprovar Vagas
+    ++ Validar Relatórios
+    ++ Gerar Relatórios
+  }
+  ==
+  Gerenciar Usuários
+  --
+  Buscar usuário: | "                " | [ Buscar ]
+  .
+  {#
+    Nome        | Tipo    | Status | Ações
+    João Silva  | Aluno   | Ativo  | [ Editar ] | [ Remover ]
+    Empresa ABC | Empresa | Ativo  | [ Editar ] | [ Remover ]
+  }
+}
+@endsalt
+
+### Tela Edição de Usuário - Administrador
+
+@startsalt
+{+
+  Editar Usuário — João Silva | [ Voltar ]
+  ==
+  .
+  Nome:       | "João Silva          "
+  Email:      | "joao@email.com      "
+  Tipo:       | ^Aluno^
+  Status:     | ^Ativo^
+  Matrícula:  | "2021001234          "
+  Curso:      | "Engenharia de Software"
+  Período:    | "5                   "
+  .
+  [   Salvar Alterações   ] | [ Cancelar ]
+}
+@endsalt
+
+@startsalt
+{+
+  Editar Usuário — João Silva | [ Voltar ]
+  ==
+  .
+  Nome:       | "João Silva          "
+  Email:      | "joao@email.com      "
+  Tipo:       | ^Aluno^
+  Status:     | ^Ativo^
+  Matrícula:  | "2021001234          "
+  Curso:      | "Engenharia de Software"
+  Período:    | "5                   "
+  .
+  [   Salvar Alterações   ] | [ Cancelar ]
+}
+@endsalt
+
+@startsalt
+{+
+  Remover Usuário
+  ==
+  .
+  ⚠ Tem certeza que deseja remover o usuário?
+  .
+  Nome:  | João Silva
+  Tipo:  | Aluno
+  Email: | joao@email.com
+  .
+  Esta ação não pode ser desfeita.
+  .
+  [   Confirmar Remoção   ] | [ Cancelar ]
+}
+@endsalt
+
+### Tela Vagas - Administrador
+
+@startsalt
+{+
+  Painel do Administrador | [ Sair ]
+  ==
+  Aprovar Vagas
+  --
+  .
+  {#
+    Empresa      | Vaga         | Status   | Ações
+    Empresa XYZ  | Dev Frontend | Pendente | [ Aprovar ] | [ Rejeitar ]
+    Empresa 123  | Designer     | Pendente | [ Aprovar ] | [ Rejeitar ]
+  }
+}
+@endsalt
+
+### Tela Relatórios - Administrador
+
+@startsalt
+{+
+  Painel do Administrador | [ Sair ]
+  ==
+  Validação Final de Relatórios
+  --
+  .
+  {#
+    Aluno        | Orientador   | Parecer            | Ação
+    João Silva   | Prof. Carlos | Aprovado           | [ Validar ] | [ Recusar ]
+    Maria Souza  | Prof. Ana    | Solicitar Correção | [ Ver Detalhes ]
+  }
+}
+@endsalt
+
+@startsalt
+{+
+  Painel do Administrador | [ Sair ]
+  ==
+  Gerar Relatórios
+  --
+  .
+  Critério: | ^Selecionar^
+  Período:  | "dd/mm/aaaa" | até | "dd/mm/aaaa"
+  .
+  [   Emitir Relatório   ]
+}
+@endsalt
+
+### Tela de inscrição em torneio
+
+[![Prototipo 13](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+<p align = "justify">
+Na primeira versão do protótipo utilizamos a ferramenta <a href="https://material.io/resources/color/#!/?view.left=0&view.right=0">Material Design Color Tool</a>  para auxiliar na criação da paleta de cores do aplicativo, definimos as cores base do aplicativo mas as cores definidas para as telas 12 e 13 ainda não foram decididas.
+</p>
+
+### Versão 2.0
+
+### Versão 1.0
+
+### Tela Login
+
+[![Prototipo 1](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Cadastro 1
+
+[![Prototipo 2](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Cadastro 2
+
+[![Prototipo 3](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Esqueceu Senha
+
+[![Prototipo 4](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela do Feed
+
+[![Prototipo 5](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Feed com configurações
+
+[![Prototipo 6](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Perfil
+
+[![Prototipo 7](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Cadastrar torneio 1
+
+[![Prototipo 8](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Cadastrar torneio 2
+
+[![Prototipo 9](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Cadastrar torneio 3
+
+[![Prototipo 10](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela Cadastrar torneio 4
+
+[![Prototipo 11](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela com meus torneios
+
+[![Prototipo 12](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+### Tela de inscrição em torneio
+
+[![Prototipo 13](../assets/Prototipo/image.png)](../assets/Prototipo/image.png)
+
+link para o `<a href="https://www.figma.com/">`Protótipo`</a>`
+
+## Conclusão
+
+<p align = "justify">
+A partir da elaboração do protótipo foi possível ter uma noção inicial da interface do usuário, definindo fluxo, paleta de cores, botões, app bars e diversas outras funcionalidades
+</p>
+
+## Referências
+
+> Material Design Color Tool. Disponível em:  https://material.io/resources/color/#!/?view.left=0&view.right=0
+
+> PMI. Um guia do conhecimento em gerenciamento de projetos. Guia PMBOK® 5a. ed. EUA: Project Management Institute, 2013.
+
+> Ferramenta Figma. Disponível em https://www.figma.com
+
+## Autor(es)
+
+| Data     | Versão | Descrição                            | Autor(es)                                                                            |
+| -------- | ------- | -------------------------------------- | ------------------------------------------------------------------------------------ |
+| 07/09/20 | 1.0     | Criação do documento                 | Lucas Alexandre e Matheus Estanislau                                                 |
+| 07/09/20 | 1.1     | Adicionado as imagens do protótipo    | Lucas Alexandre e Matheus Estanislau                                                 |
+| 07/09/20 | 1.2     | Adicionado conclusão e referências   | Lucas Alexandre e Matheus Estanislau                                                 |
+| 26/10/20 | 2.0     | Adicionada a versão 2.0 do protótipo | João Pedro, Lucas Alexandre, Matheus Estanislau, Moacir Mascarenha e Renan Cristyan |
