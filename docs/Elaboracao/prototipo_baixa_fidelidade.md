@@ -19,7 +19,7 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
 
 ### Versão 1.0
 
-### Tela Login
+## Tela Login
 
 ```kroki-plantuml
 @startsalt
@@ -33,6 +33,28 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   [   Entrar   ]
   .
   Não tem conta? | "Cadastre-se"
+}
+@endsalt
+```
+
+### Fluxo Alternativo - Credenciais Inválidas
+
+```kroki-plantuml
+@startsalt
+{
+  Sistema de Gestão de Estágios
+  ==
+  .
+  Email: | "email@exemplo.com    "
+  Senha: | "*********************"
+  .
+  {#
+    E-mail ou senha incorretos. Tente novamente.
+  }
+  .
+  [   Entrar   ]
+  .
+  "Esqueceu a senha?"
 }
 @endsalt
 ```
@@ -57,6 +79,29 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   [   Enviar Cadastro   ]
   .
   Já tem conta? | "Faça login"
+}
+@endsalt
+```
+### Fluxo Alternativo - Dados Inválidos
+
+```kroki-plantuml
+@startsalt
+{
+  Cadastro — Erro
+  ==
+  .
+  Nome:  | "                    "
+  Email: | "email_invalido"
+  Senha: | "***"
+  CPF:   | "000.000"
+  .
+  {#
+     E-mail inválido.
+     CPF incompleto.
+     Senha muito curta (mínimo 8 caracteres).
+  }
+  .
+  [   Tentar Novamente   ]
 }
 @endsalt
 ```
@@ -185,6 +230,62 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
 }
 @endsalt
 ```
+### Fluxo Alternativo - Vaga encerrada ou não há vagas
+
+```kroki-plantuml
+@startsalt
+{+
+  Candidatar-se — Erro
+  ==
+  .
+  Vaga:   | Dev Backend — Empresa ABC
+  Status: | Encerrada
+  .
+    Esta vaga não está mais disponível
+    para novas candidaturas.
+  .
+  [ Ver Outras Vagas ]
+}
+@endsalt
+```
+
+```kroki-plantuml
+@startsalt
+{+
+  Olá, [Nome do Aluno] | [ Sair ]
+  ==
+  Vagas Disponíveis
+  --
+  Filtrar por: | ^Área de Atuação^ | [ Buscar ]
+  .
+  .
+     Nenhuma vaga disponível no momento.
+     Tente novamente mais tarde ou
+     ajuste os filtros de busca.
+  .
+  [ Limpar Filtros ]
+}
+@endsalt
+```
+### Fluxo Alternativo - Não há candidaturas 
+
+```kroki-plantuml
+@startsalt
+{+
+  Olá, [Nome do Aluno] | [ Sair ]
+  ==
+  Minhas Candidaturas
+  --
+  .
+  .
+  ⚠ Você ainda não se candidatou
+    a nenhuma vaga.
+  .
+  [ Ver Vagas Disponíveis ]
+}
+@endsalt
+```
+
 
 ## Telas de documentação
 
@@ -336,6 +437,24 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
 }
 @endsalt
 ```
+### Fluxo Alternativo - Não há candidatos
+
+```kroki-plantuml
+@startsalt
+{+
+  Olá, [Nome da Empresa] | [ Sair ]
+  ==
+  Candidatos para: Designer UI
+  --
+  .
+  .
+   Nenhum aluno se candidatou
+    a esta vaga ainda.
+  .
+  [ Voltar para Minhas Vagas ]
+}
+@endsalt
+```
 
 ## Tela de relatórios - Coordenaçao
 
@@ -358,7 +477,6 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
 }
 @endsalt
 ```
-
 
 ### Avaliação de relatorios - Validação aprovada
 
@@ -388,6 +506,9 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
 }
 @endsalt
 ```
+
+### Fluxo Alternativo - Inconsistência no relatório
+
 ```kroki-plantuml
 @startsalt
 {+
@@ -409,6 +530,10 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   "                                        "
   .
   Relatório reprovado pelo sistema - Necessita alterações
+  {#
+     Data errônea.
+     Supervisor não informado.
+  }
   .
   [   Confirmar Avaliação   ]
 }
@@ -463,6 +588,7 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
 }
 @endsalt
 ```
+
 ```kroki-plantuml
 @startsalt
 {+
@@ -488,7 +614,7 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   Remover Usuário
   ==
   .
-  ⚠ Tem certeza que deseja remover o usuário?
+   Tem certeza que deseja remover o usuário?
   .
   Nome:  | João Silva
   Tipo:  | Aluno
@@ -538,6 +664,7 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
 }
 @endsalt
 ```
+
 ```kroki-plantuml
 @startsalt
 {+
@@ -550,6 +677,29 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   Período:  | "dd/mm/aaaa" | até | "dd/mm/aaaa"
   .
   [   Emitir Relatório   ]
+}
+@endsalt
+```
+
+### Fluxo Alternativo - Erro ao gerar relatório
+
+```kroki-plantuml
+@startsalt
+{+
+  Painel do Administrador | [ Sair ]
+  ==
+  Gerar Relatório — Aviso
+  --
+  .
+  Critério: | ^Candidaturas por Curso^
+  Período:  | "01/2025" | até | "06/2025"
+  .
+  {#
+    ⚠ Não há dados suficientes para o
+      período e critério selecionados.
+  }
+  .
+  [ Alterar Critérios ] | [ Voltar ]
 }
 @endsalt
 ```
