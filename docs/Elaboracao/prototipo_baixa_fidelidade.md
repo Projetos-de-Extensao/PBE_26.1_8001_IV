@@ -278,7 +278,7 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   --
   .
   .
-  ⚠ Você ainda não se candidatou
+   Você ainda não se candidatou
     a nenhuma vaga.
   .
   [ Ver Vagas Disponíveis ]
@@ -310,9 +310,9 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   Documentos Vinculados:
   {#
     Tipo                 | Válido
-    TCE                  | ✔ Sim
-    Plano de Atividades  | ✔ Sim
-    Relatório Semestral  | ⏳ Pendente
+    TCE                  |  Sim
+    Plano de Atividades  |  Sim
+    Relatório Semestral  |  Pendente
   }
   .
   [ Enviar Documento ] | [ Enviar Relatório Semestral ]
@@ -383,7 +383,7 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   Hash SHA-256:     | "a3f5c...d91b"
   .
   --
-  () ✔ Documento válido. Arquivo aceito pelo sistema.
+  ()  Documento válido. Arquivo aceito pelo sistema.
   .
   --
   .
@@ -695,7 +695,7 @@ Iniciamos o projeto através dos levantamentos iniciais da equipe, após discuss
   Período:  | "01/2025" | até | "06/2025"
   .
   {#
-    ⚠ Não há dados suficientes para o
+     Não há dados suficientes para o
       período e critério selecionados.
   }
   .
