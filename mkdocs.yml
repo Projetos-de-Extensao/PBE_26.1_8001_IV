@@ -23,7 +23,6 @@ nav:
   - Elaboração:
       - Index: Elaboracao/index.md
       - Requisitos: Elaboracao/requisitos.md
-      - Casos de Uso: Elaboracao/casos_de_uso.md
       - Diagrama de Classes: Elaboracao/diagrama_de_classes.md
       - Diagrama de Casos de Uso: Elaboracao/diagrama_de_casos_de_uso.md
       - Prototipagem Baixa Fidelidade: Elaboracao/prototipo_baixa_fidelidade.md
