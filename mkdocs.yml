@@ -83,12 +83,19 @@ markdown_extensions:
       permalink: true
 
 plugins:
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+      puml_keyword: plantuml
   - minify:
       minify_html: true
   - search
+  - mkdocs-jupyter:
+      execute: false
+      allow_errors: true
   - kroki
 
 theme:
+  favicon: assets/ibmec_icon.png
   name: material
   logo: assets/ibmec_logo.png
   palette:
