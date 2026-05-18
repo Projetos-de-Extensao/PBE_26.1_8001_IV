@@ -11,18 +11,26 @@ Este documento detalha a estrutura de dados e as relações entre as entidades d
 
 A tabela abaixo descreve os atributos planejados, tratando o Orientador como uma entidade de dados vinculada à Instituição de Ensino, conforme as diretrizes de automação do sistema.
 
+
 | Classe | Atributo | Tipo | Descrição |
 | :--- | :--- | :--- | :--- |
-| **Usuário** | `nome`, `email`, `senha` | String | Dados de acesso para perfis que interagem com o sistema (Aluno/Empresa). |
-| **Aluno** | `cpf`, `matricula` | String | Identificadores para fins de Termo de Compromisso e histórico acadêmico. |
-| | `curso`, `periodo` | String/Int | Critérios para validação automática da elegibilidade ao estágio. |
-| **Empresa** | `cnpj`, `razaoSocial` | String | Identificação jurídica da parte concedente (empresa). |
+| **Usuário** | `nome` | String | Dados de acesso para perfis que interagem com o sistema (Aluno/Empresa). |
+| | `email` | String | Dados de acesso para perfis que interagem com o sistema (Aluno/Empresa). |
+| | `senha` | String | Dados de acesso para perfis que interagem com o sistema (Aluno/Empresa). |
+| **Aluno** | `cpf` | String | Identificadores para fins de Termo de Compromisso e histórico acadêmico. |
+| | `matricula` | String | Identificadores para fins de Termo de Compromisso e histórico acadêmico. |
+| | `curso` | String | Critérios para validação automática da elegibilidade ao estágio. |
+| | `periodo` | Int | Critérios para validação automática da elegibilidade ao estágio. |
+| **Empresa** | `cnpj` | String | Identificação jurídica da parte concedente (empresa). |
+| | `razaoSocial` | String | Identificação jurídica da parte concedente (empresa). |
 | | `supervisor` | String | Nome do profissional responsável pelo acompanhamento na empresa. |
 | **Instituição** | `nomeUnidade` | String | Identificação do campus universitário (ex: Ibmec RJ / Ibmec MG). |
 | | `coordenador` | String | Responsável institucional pela validação final do convênio de estágio. |
-| **Orientador** | `nome`, `siape` | String | Identificação do docente responsável pela análise pedagógica. |
+| **Orientador** | `nome` | String | Identificação do docente responsável pela análise pedagógica. |
+| | `siape` | String | Identificação do docente responsável pela análise pedagógica. |
 | | `areaAtuacao` | String | Vincula o professor ao curso e área de conhecimento do aluno. |
-| **Termo de Compromisso**| `dataInicio`, `dataFim` | Date | Período de vigência para controle do limite legal de 2 anos. |
+| **Termo de Compromisso**| `dataInicio` | Date | Período de vigência para controle do limite legal de 2 anos. |
+| | `dataFim` | Date | Período de vigência para controle do limite legal de 2 anos. |
 | | `apoliceSeguro` | String | Número da apólice obrigatória contra acidentes (Art. 9º da Lei 11.788). |
 | | `statusJuridico` | Enum | Estado do contrato: `Pendente`, `Ativo` ou `Concluído`. |
 | **Documento** | `tipo` | String | Categoria do arquivo (TCE, Plano de Atividades ou Relatório). |
