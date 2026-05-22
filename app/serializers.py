@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Aluno, Empresa, Instituicao, Orientador, TermoDeCompromisso
+from .models import Aluno, Empresa, Instituicao, Orientador, TermoDeCompromisso, Documento, RelatorioSemestral
 
 
 class AlunoSerializer(serializers.ModelSerializer):
@@ -29,4 +29,14 @@ class OrientadorSerializer(serializers.ModelSerializer):
 class TermoDeCompromissoSerializer(serializers.ModelSerializer):
     class Meta:
         model = TermoDeCompromisso
+        fields = '__all__'
+
+class DocumentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Documento
+        fields = '__all__'
+
+class RelatorioSemestralSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RelatorioSemestral
         fields = '__all__'
