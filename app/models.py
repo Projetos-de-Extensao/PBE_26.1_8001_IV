@@ -75,3 +75,27 @@ class TermoDeCompromisso(models.Model):
     class Meta:
         verbose_name = "Termo de Compromisso"
         verbose_name_plural = "Termos de Compromisso"
+
+
+class Documento(models.Model):
+
+    class TipoDocumento(models.TextChoices):
+        TCE = 'TCE', 'TCE'
+        PLANO_ATIVIDADES = 'Plano de Atividades', 'Plano de Atividades'
+        RELATORIO = 'Relatório', 'Relatório'
+
+    tipo = models.CharField(
+        max_length=40,
+        choices=TipoDocumento.choices,
+    )
+    #uso pra garantir a integridade dos dados
+    hashSHA256 = models.CharField(max_length=64)
+
+    valido = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.tipo}"
+
+    class Meta:
+        verbose_name = "Documento"
+        verbose_name_plural = "Documentos"
