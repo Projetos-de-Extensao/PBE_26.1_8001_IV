@@ -99,3 +99,16 @@ class Documento(models.Model):
     class Meta:
         verbose_name = "Documento"
         verbose_name_plural = "Documentos"
+
+class RelatorioSemestral(models.Model):
+
+    resumoAtividades = models.TextField()
+
+    dataReferencia = models.DateField()
+
+    def __str__(self):
+        return f"Relatório {self.dataReferencia}"
+
+    class Meta:
+        verbose_name = "Relatório Semestral"
+        verbose_name_plural = "Relatórios Semestrais"
