@@ -45,6 +45,11 @@ class Orientador(models.Model):
     nome = models.CharField(max_length=255)
     siape = models.CharField(max_length=50)
     areaAtuacao = models.CharField(max_length=255)
+    instituicao = models.ForeignKey(
+        Instituicao,
+        on_delete=models.CASCADE,
+        related_name='orientadores'
+    )
 
     def __str__(self):
         return self.nome
@@ -67,6 +72,16 @@ class TermoDeCompromisso(models.Model):
         max_length=10,
         choices=StatusJuridico.choices,
         default=StatusJuridico.PENDENTE,
+    )
+    aluno = models.ForeignKey(                # ← novo
+        Aluno,
+        on_delete=models.CASCADE,
+        related_name='termos'
+    )
+    empresa = models.ForeignKey(              # ← novo
+        Empresa,
+        on_delete=models.CASCADE,
+        related_name='termos'
     )
 
     def __str__(self):
