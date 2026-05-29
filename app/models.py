@@ -116,7 +116,13 @@ class Documento(models.Model):
         TermoDeCompromisso,
         on_delete=models.CASCADE,
         related_name='documentos',
+        null=True,
     )
+
+    def clean(self):
+     from django.core.exceptions import ValidationError
+     if self.termo is None:
+        raise ValidationError("Um documento precisa estar vinculado a um Termo de Compromisso.")
 
     def __str__(self):
         return f"{self.tipo}"
@@ -132,12 +138,22 @@ class RelatorioSemestral(models.Model):
         Aluno,
         on_delete=models.CASCADE,
         related_name='relatorios',
+        null=True,
     )
     documento = models.OneToOneField(
         Documento,
         on_delete=models.CASCADE,
         related_name='relatorio_semestral',
+        null=True,
     )
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.aluno is None:
+            raise ValidationError("Um relatório precisa estar vinculado a um Aluno.")
+        if self.documento is None:
+            raise ValidationError("Um relatório precisa estar vinculado a um Documento.")
+
 
     def __str__(self):
         return f"Relatório {self.dataReferencia}"
