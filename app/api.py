@@ -38,4 +38,4 @@ class DocumentoViewSet(viewsets.ModelViewSet):
 
 class RelatorioSemestralViewSet(viewsets.ModelViewSet):
     queryset = RelatorioSemestral.objects.all()
-    serializer_class = RelatorioSemestral
+    serializer_class = RelatorioSemestralSerializer
