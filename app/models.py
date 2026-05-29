@@ -17,6 +17,13 @@ class Aluno(Usuario):
     matricula = models.CharField(max_length=20, unique=True)
     curso = models.CharField(max_length=100)
     periodo = models.IntegerField()
+    orientador = models.ForeignKey(
+        'Orientador',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='alunos_supervisionados',
+    )
 
     def __str__(self):
         return f"Aluno: {self.nome} ({self.matricula})"
@@ -103,10 +110,13 @@ class Documento(models.Model):
         max_length=40,
         choices=TipoDocumento.choices,
     )
-    #uso pra garantir a integridade dos dados
     hashSHA256 = models.CharField(max_length=64)
-
     valido = models.BooleanField(default=False)
+    termo = models.ForeignKey(
+        TermoDeCompromisso,
+        on_delete=models.CASCADE,
+        related_name='documentos',
+    )
 
     def __str__(self):
         return f"{self.tipo}"
@@ -116,10 +126,18 @@ class Documento(models.Model):
         verbose_name_plural = "Documentos"
 
 class RelatorioSemestral(models.Model):
-
     resumoAtividades = models.TextField()
-
     dataReferencia = models.DateField()
+    aluno = models.ForeignKey(
+        Aluno,
+        on_delete=models.CASCADE,
+        related_name='relatorios',
+    )
+    documento = models.OneToOneField(
+        Documento,
+        on_delete=models.CASCADE,
+        related_name='relatorio_semestral',
+    )
 
     def __str__(self):
         return f"Relatório {self.dataReferencia}"
