@@ -33,7 +33,7 @@ class Empresa(Usuario):
     cnpj = models.CharField(max_length=18, unique=True)
     razao_social = models.CharField(max_length=255)
     ramo_atividade = models.CharField(max_length=100)
-
+    supervisor = models.CharField(max_length=255, null=True, blank=True)
     def __str__(self):
         return f"Empresa: {self.razao_social}"
   

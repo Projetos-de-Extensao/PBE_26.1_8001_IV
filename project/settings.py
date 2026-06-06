@@ -133,10 +133,10 @@ STATIC_URL = 'static/'
 
 #CONFIGURAÇÕES DE CIBERSEGURANÇA
 
-CORS_ALLOWED_ORIGINS = [
+CORS_ALLOWED_ORIGINS = (
     "http://localhost:3000",
     "http://127.0.0.1:5500",
-]
+)
 
 CORS_ALLOW_CREDENTIALS = True
 
