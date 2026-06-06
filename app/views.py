@@ -31,9 +31,7 @@ class OrientadorViewSet(viewsets.ModelViewSet):
     serializer_class = OrientadorSerializer
 
 
-class TermoDeCompromissoViewSet(viewsets.ModelViewSet):
-    queryset = TermoDeCompromisso.objects.all()
-    serializer_class = TermoDeCompromissoSerializer
+queryset = TermoDeCompromisso.objects.select_related('aluno', 'empresa').all()
 
 class DocumentoViewSet(viewsets.ModelViewSet):
     queryset = Documento.objects.all()
