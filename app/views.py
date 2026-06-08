@@ -1,3 +1,4 @@
+# app/views.py
 from rest_framework import viewsets
 from .models import Aluno, Documento, Empresa, Instituicao, Orientador, RelatorioSemestral, TermoDeCompromisso
 from .serializers import (
@@ -30,8 +31,12 @@ class OrientadorViewSet(viewsets.ModelViewSet):
     queryset = Orientador.objects.all()
     serializer_class = OrientadorSerializer
 
-
-queryset = TermoDeCompromisso.objects.select_related('aluno', 'empresa').all()
+class TermoDeCompromissoViewSet(viewsets.ModelViewSet):
+    queryset = TermoDeCompromisso.objects.select_related(
+        'aluno',
+        'empresa'
+    ).all()
+    serializer_class = TermoDeCompromissoSerializer
 
 class DocumentoViewSet(viewsets.ModelViewSet):
     queryset = Documento.objects.all()

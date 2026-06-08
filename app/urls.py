@@ -1,7 +1,7 @@
 # app/urls.py
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .api import (       
+from .views import (       
     AlunoViewSet,
     DocumentoViewSet,
     EmpresaViewSet,

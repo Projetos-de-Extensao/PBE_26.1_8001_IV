@@ -4,7 +4,7 @@ title: Documento de Arquitetura
 ---
 # Documento de Arquitetura de Software (DAS)
 
-# "Nome do Projeto"
+# Sistema de Gestão de Estágios
 
 # Introdução
 
@@ -17,19 +17,19 @@ Este documento apresenta uma visão geral da arquitetura do sistema, utilizando 
 ## Escopo
 
 <p align = "justify">
-A aplicação "XXXX" tem o objetivo fornecer...
+A aplicação "Sistema de Gestão de Estágios" tem o objetivo de gerenciar alunos, empresas, orientadores, documentos, termos de compromisso e relatórios relacionados ao acompanhamento de estágios.
 </p>
 
 ## Definições, Acrônimos e Abreviações
 
-- MVC -
-- MVT -
-- SIGLA PARA O APP - Nome do Aplicativo
+- MVC - Model View Controller.
+- MVT - Model View Template.
+- SGE - Sistema de Gestão de Estágios.
 
 ## Visão Geral
 
 <p align = "justify">
-O Documento de Arquitetura de Software (DAS) trata-se de uma visão geral de toda a arquitetura do sistema, observando diferentes aspectos do mesmo. Neste documento serão abordadas as seguintes visões da aplicação TCM:
+O Documento de Arquitetura de Software (DAS) trata-se de uma visão geral de toda a arquitetura do sistema, observando diferentes aspectos do mesmo. Neste documento serão abordadas as seguintes visões da aplicação SGE:
 </p>
 
 - Caso de Uso;
@@ -92,20 +92,19 @@ Acesso a internet: A aplicação está limitada apenas a conexão com internet
 
 ## Ferramentas Utilizadas
 
-- XXX: Ambiente de execução...
-- XXXX: Linguagem de programação...
-  Typescript: XXXX
-- XXXX: XXXX
-- XXX: XXXX
-- XXXX: XXXX
-- XXXX: XXXX
-- XXXX: XXXX
-- XXXXX: XXXX.
+- Python: Linguagem de programação utilizada no backend.
+- Django: Framework principal da aplicação.
+- Django REST Framework: Desenvolvimento da API REST.
+- SQLite: Banco de dados utilizado no projeto.
+- Git: Controle de versão.
+- GitHub: Hospedagem do código-fonte.
+- MkDocs: Geração da documentação.
+- VS Code: Ambiente de desenvolvimento.
 
 # Visão de Caso de Uso
 
 <p align = "justify">
-O primeiro caso de uso descreve a ação...
+Os casos de uso representam as principais funcionalidades do sistema relacionadas ao gerenciamento de estágios, usuários, documentos e relatórios.
 </p>
 
 ![Caso de uso 1](../assets/Casos_de_Uso/Exemplocaso_de_uso_1.png)
@@ -142,7 +141,7 @@ O primeiro caso de uso descreve a ação...
 
 | Data       | Versão | Descrição                                                            | Autor(es)                                   |
 | ---------- | ------- | ---------------------------------------------------------------------- | ------------------------------------------- |
-| 08/11/2020 | 1.0     | Criada estrutura básica do documento                                  | xxx xxx, xxx xx, xxx xx, xxx xxx e xxx xxxx |
+| 08/11/2020 | 1.0 | Criada estrutura básica do documento | Equipe do Projeto |
 | 15/11/2020 | 1.1     | Representação arquitetural e objetivos e restrições arquiteturais. | Autores                                     |
 | 19/11/2020 | 1.2     | Adição dos diagramas, visões, tamanho e desempenho e qualidade      | Autores                                     |
 | 20/11/2020 | 1.3     | Adição da descrição de MER e DER                                   | Autores                                     |
