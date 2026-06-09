@@ -1,4 +1,3 @@
-# app/views.py
 from rest_framework import viewsets
 from .models import Aluno, Documento, Empresa, Instituicao, Orientador, RelatorioSemestral, TermoDeCompromisso
 from .serializers import (
@@ -17,6 +16,7 @@ class AlunoViewSet(viewsets.ModelViewSet):
     serializer_class = AlunoSerializer
 
 
+
 class EmpresaViewSet(viewsets.ModelViewSet):
     queryset = Empresa.objects.all()
     serializer_class = EmpresaSerializer
@@ -25,6 +25,7 @@ class EmpresaViewSet(viewsets.ModelViewSet):
 class InstituicaoViewSet(viewsets.ModelViewSet):
     queryset = Instituicao.objects.all()
     serializer_class = InstituicaoSerializer
+
 
 
 class OrientadorViewSet(viewsets.ModelViewSet):
@@ -38,9 +39,11 @@ class TermoDeCompromissoViewSet(viewsets.ModelViewSet):
     ).all()
     serializer_class = TermoDeCompromissoSerializer
 
+
 class DocumentoViewSet(viewsets.ModelViewSet):
     queryset = Documento.objects.all()
     serializer_class = DocumentoSerializer
+
 
 
 class RelatorioSemestralViewSet(viewsets.ModelViewSet):
