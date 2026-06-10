@@ -18,6 +18,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
 
 class AlunoSerializer(serializers.ModelSerializer):
     usuario = UsuarioSerializer()
+    cpf = serializers.CharField(write_only=True)
 
     class Meta:
         model = Aluno
@@ -83,6 +84,8 @@ class OrientadorSerializer(serializers.ModelSerializer):
 
 
 class TermoDeCompromissoSerializer(serializers.ModelSerializer):
+    statusJuridico = serializers.CharField(read_only=True)
+
     class Meta:
         model = TermoDeCompromisso
         fields = [
@@ -96,6 +99,9 @@ class TermoDeCompromissoSerializer(serializers.ModelSerializer):
         ]
 
 class DocumentoSerializer(serializers.ModelSerializer):
+    hashSHA256 = serializers.CharField(read_only=True)
+    valido = serializers.BooleanField(read_only=True)
+
     class Meta:
         model = Documento
         fields = [

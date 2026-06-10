@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -90,6 +92,7 @@ class TermoDeCompromisso(models.Model):
     class StatusJuridico(models.TextChoices):
         PENDENTE = 'Pendente', 'Pendente'
         ATIVO = 'Ativo', 'Ativo'
+        REPROVADO = 'Reprovado', 'Reprovado'
         CONCLUIDO = 'Concluído', 'Concluído'
 
     dataInicio = models.DateField()
@@ -100,6 +103,9 @@ class TermoDeCompromisso(models.Model):
         choices=StatusJuridico.choices,
         default=StatusJuridico.PENDENTE,
     )
+
+    token_validacao = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    
     aluno = models.ForeignKey(                
         Aluno,
         on_delete=models.CASCADE,
