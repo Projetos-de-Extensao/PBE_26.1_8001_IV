@@ -1,17 +1,29 @@
 from rest_framework import serializers
-from .models import Aluno, Empresa, Instituicao, Orientador, TermoDeCompromisso, Documento, RelatorioSemestral
+from .models import Aluno, Empresa, Instituicao, Orientador, TermoDeCompromisso, Documento, RelatorioSemestral, Usuario
 
+
+class UsuarioSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = Usuario
+        fields = ['id', 'username', 'email', 'password', 'tipo']
+
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        usuario = Usuario(**validated_data)
+        usuario.set_password(password)
+        usuario.save()
+        return usuario
 
 class AlunoSerializer(serializers.ModelSerializer):
-    senha = serializers.CharField(write_only=True)
+    usuario = UsuarioSerializer()
 
     class Meta:
         model = Aluno
         fields = [
             'id',
-            'nome',
-            'email',
-            'senha',
+            'usuario',
             'cpf',
             'matricula',
             'curso',
@@ -19,20 +31,24 @@ class AlunoSerializer(serializers.ModelSerializer):
             'orientador',
         ]
 
+    def create(self, validated_data):
+        usuario_data = validated_data.pop('usuario')
+        usuario_data['tipo'] = Usuario.TipoUsuario.ALUNO
+        usuario = UsuarioSerializer().create(usuario_data)
+        return Aluno.objects.create(usuario=usuario, **validated_data)
+
 
 class EmpresaSerializer(serializers.ModelSerializer):
-    senha = serializers.CharField(write_only=True)
 
     class Meta:
         model = Empresa
         fields = [
             'id',
-            'nome',
             'email',
-            'senha',
             'cnpj',
             'razao_social',
             'ramo_atividade',
+            'supervisor',
         ]
 
 
@@ -47,18 +63,23 @@ class InstituicaoSerializer(serializers.ModelSerializer):
 
 
 class OrientadorSerializer(serializers.ModelSerializer):
-    senha = serializers.CharField(write_only=True)
+    usuario = UsuarioSerializer()
 
     class Meta:
         model = Orientador
         fields = [
             'id',
-            'nome',
-            'senha',
+            'usuario',
             'siape',
             'areaAtuacao',
             'instituicao',
         ]
+
+    def create(self, validated_data):
+        usuario_data = validated_data.pop('usuario')
+        usuario_data['tipo'] = Usuario.TipoUsuario.ORIENTADOR
+        usuario = UsuarioSerializer().create(usuario_data)
+        return Orientador.objects.create(usuario=usuario, **validated_data)
 
 
 class TermoDeCompromissoSerializer(serializers.ModelSerializer):

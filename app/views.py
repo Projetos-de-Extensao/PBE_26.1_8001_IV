@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Aluno, Documento, Empresa, Instituicao, Orientador, RelatorioSemestral, TermoDeCompromisso
 from .serializers import (
     AlunoSerializer,
@@ -20,6 +21,7 @@ class AlunoViewSet(viewsets.ModelViewSet):
 class EmpresaViewSet(viewsets.ModelViewSet):
     queryset = Empresa.objects.all()
     serializer_class = EmpresaSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class InstituicaoViewSet(viewsets.ModelViewSet):

@@ -1,18 +1,31 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class Usuario(models.Model):
-    nome = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
-    senha = models.CharField(max_length=128)
+class Usuario(AbstractUser):
+    class TipoUsuario(models.TextChoices):
+        ALUNO = 'aluno', 'Aluno'
+        ORIENTADOR = 'orientador', 'Orientador'
 
-    class Meta:
-        abstract = True 
+    tipo = models.CharField(
+        max_length=20,
+        choices=TipoUsuario.choices,
+    )
 
     def __str__(self):
-        return self.nome
+        return self.username
+
+    class Meta:
+        verbose_name = "Usuário"
+        verbose_name_plural = "Usuários"
     
 
-class Aluno(Usuario):
+class Aluno(models.Model):
+    usuario = models.OneToOneField(
+        Usuario,
+        on_delete=models.CASCADE,
+        related_name='aluno',
+    )
+
     cpf = models.CharField(max_length=14, unique=True)  
     matricula = models.CharField(max_length=20, unique=True)
     curso = models.CharField(max_length=100)
@@ -26,14 +39,16 @@ class Aluno(Usuario):
     )
 
     def __str__(self):
-        return f"Aluno: {self.nome} ({self.matricula})"
+        return f"Aluno: {self.usuario.username} ({self.matricula})"
     
 
-class Empresa(Usuario):
+class Empresa(models.Model):
     cnpj = models.CharField(max_length=18, unique=True)
     razao_social = models.CharField(max_length=255)
     ramo_atividade = models.CharField(max_length=100)
     supervisor = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(unique=True)
+
     def __str__(self):
         return f"Empresa: {self.razao_social}"
   
@@ -49,7 +64,12 @@ class Instituicao(models.Model):
         verbose_name_plural = "Instituições"
 
 class Orientador(models.Model):
-    nome = models.CharField(max_length=255)
+    usuario = models.OneToOneField(
+        Usuario,
+        on_delete=models.CASCADE,
+        related_name='orientador',
+    )
+
     siape = models.CharField(max_length=50)
     areaAtuacao = models.CharField(max_length=255)
     instituicao = models.ForeignKey(
@@ -59,7 +79,7 @@ class Orientador(models.Model):
     )
 
     def __str__(self):
-        return self.nome
+        return f"Orientador: {self.usuario.username}"
 
     class Meta:
         verbose_name = "Orientador"
@@ -80,12 +100,12 @@ class TermoDeCompromisso(models.Model):
         choices=StatusJuridico.choices,
         default=StatusJuridico.PENDENTE,
     )
-    aluno = models.ForeignKey(                # ← novo
+    aluno = models.ForeignKey(                
         Aluno,
         on_delete=models.CASCADE,
         related_name='termos'
     )
-    empresa = models.ForeignKey(              # ← novo
+    empresa = models.ForeignKey(              
         Empresa,
         on_delete=models.CASCADE,
         related_name='termos'
