@@ -170,3 +170,148 @@ end note
 
 @enduml
 ```
+
+---
+id: diagrama_de_casos_de_uso
+title: Diagrama de Casos de Uso
+---
+
+# Projeto de Arquitetura: Casos de Uso (V2.0)
+
+Este documento detalha as interações entre os usuários (Aluno e Orientador) e o sistema. Na Versão 2.0, as interações foram simplificadas e a figura do **Sistema Temporal (Cron)** foi adicionada para lidar com as regras assíncronas estipuladas pela Lei 11.788/08.
+
+---
+
+## 1. Descrição dos Casos de Uso
+
+### UC01 - Autenticar no Sistema (Login)
+**Atores:** Aluno, Orientador.  
+**Pré-condição:** Usuário previamente cadastrado na base de dados.  
+**Fluxo Principal:**
+1. O usuário acessa a tela de login.
+2. O usuário insere e-mail e senha.
+3. O sistema valida as credenciais.
+4. O sistema concede o acesso baseado no perfil do usuário.
+**Fluxos Alternativos:**
+- FA01 (Credenciais Inválidas): O sistema não encontra o usuário ou a senha está incorreta. Exibe mensagem de erro e bloqueia o acesso.
+**Pós-condição:** Usuário autenticado e sessão iniciada.
+
+---
+
+### UC02 - Enviar Termo e Dados da Empresa
+**Atores:** Aluno.  
+**Pré-condição:** Aluno autenticado no sistema.  
+**Fluxo Principal:**
+1. O aluno acessa a área de envio de documentos.
+2. Preenche os dados passivos da Empresa (CNPJ, Razão Social, Supervisor).
+3. Preenche as informações do contrato (Data de Início, Data de Fim, Apólice de Seguro).
+4. Anexa o arquivo PDF do Termo de Compromisso.
+5. O sistema engatilha automaticamente a validação de conformidade legal (UC03).
+6. O sistema salva o registro e define o status.
+**Fluxos Alternativos:**
+- FA01 (Dados Incompletos): O aluno não preenche campos obrigatórios. O sistema alerta e impede o envio.
+**Pós-condição:** Termo registrado no banco de dados.
+
+---
+
+### UC03 - Avaliar Termo via Link
+**Atores:** Orientador.  
+**Pré-condição:** Orientador autenticado na API e de posse do link recebido por e-mail.  
+**Fluxo Principal:**
+1. O orientador acessa seu e-mail e clica no Link contendo o Token UUID único.
+2. O sistema valida se o usuário logado é realmente um Orientador.
+3. O sistema atualiza o status jurídico do termo (Ativo ou Reprovado).
+4. O sistema dispara um aviso para o aluno e para a empresa sobre o resultado.
+**Fluxos Alternativos:**
+- FA01 (Acesso Negado): Um Aluno tenta acessar o link ou o Orientador não está logado. O sistema retorna Erro 403 (Proibido).
+- FA02 (Token Inválido): O UUID não existe na base. O sistema retorna Erro 404 (Não Encontrado).
+**Pós-condição:** Contrato processado e auditado.
+
+---
+
+### UC04 - Emitir Consolidado Diário
+**Atores:** Sistema Temporal (Cron).  
+**Pré-condição:** Existência de Termos ativados automaticamente na data corrente.  
+**Fluxo Principal:**
+1. O script de segundo plano é executado às 23:59.
+2. O sistema filtra todos os contratos ativos no dia agrupando por Orientador.
+3. O sistema monta uma lista contendo os alunos de cada professor.
+4. Dispara um único e-mail de resumo diário para a caixa de entrada de cada Orientador.
+**Pós-condição:** Orientadores notificados sem excesso de *spam*.
+
+---
+
+### UC05 - Cobrar Relatório Semestral
+**Atores:** Sistema Temporal (Cron).  
+**Pré-condição:** Existência de Termos de Compromisso com status Ativo.  
+**Fluxo Principal:**
+1. O script é executado pelo servidor em rotina diária.
+2. O sistema calcula a diferença entre a data atual e a `dataInicio` de cada contrato.
+3. Ao bater a marca de múltiplos de 180 dias, o sistema gera uma pendência invisível no banco de dados.
+4. O sistema dispara um e-mail de cobrança legal obrigatória para o aluno.
+**Pós-condição:** Cumprimento automático da exigência periódica do Art. 7º da Lei 11.788/08.
+
+---
+
+## 2. Diagrama Visual
+
+O diagrama abaixo ilustra as interações descritas, separando as ações ativas dos usuários humanos das ações autônomas executadas pelo servidor (Cron).
+
+```kroki-plantuml
+@startuml Sistema_Gestao_Estagios_CasosDeUso_V2
+
+left to right direction
+skinparam actorStyle awesome
+skinparam monochrome true
+skinparam shadowing false
+
+' Definição dos Atores
+actor "Aluno" as aluno
+actor "Orientador" as orientador
+actor "Sistema Temporal\n(Cron)" as cron
+
+' Delimitação do Sistema
+rectangle "Sistema de Gestão de Estágios V2.0" {
+    
+    usecase (UC01: Autenticar no Sistema) as UC01
+    
+    usecase (UC02: Enviar Termo e Dados da Empresa) as UC02
+    usecase (Validar Conformidade Legal) as valida_lei
+    
+    usecase (UC03: Avaliar Termo via Link Mágico) as UC03
+    
+    usecase (UC04: Emitir Consolidado Diário) as UC04
+    
+    usecase (UC05: Cobrar Relatório Semestral) as UC05
+    usecase (Criar Pendência no Banco) as cria_pendencia
+
+}
+
+' Relações dos Usuários Humanos
+aluno --> UC01
+orientador --> UC01
+
+aluno --> UC02
+UC02 ..> valida_lei : <<include>>
+
+orientador --> UC03
+
+' Relações da Automação (Robôs de Segundo Plano)
+cron --> UC04
+cron --> UC05
+UC05 ..> cria_pendencia : <<include>>
+
+' Notas explicativas
+note right of valida_lei
+  Inspeciona se falta seguro
+  ou se a duração excede 2 anos
+  (Art. 9º).
+end note
+
+note right of UC03
+  Substitui a navegação em
+  painéis. Ação feita via
+  token UUID seguro.
+end note
+
+@enduml

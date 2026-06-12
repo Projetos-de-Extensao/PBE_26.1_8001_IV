@@ -130,3 +130,52 @@ Sistema: Sistema de Gestão de Estágios
 **Validação com Usuários:** Confirmar se o cadastro e acompanhamento dos estágios são simples e intuitivos.
 
 **Teste com Empresas e Orientadores:** Verificar se o gerenciamento de documentos, termos de compromisso e relatórios atende às necessidades do processo de estágio.
+
+# Levantamento de Requisitos 2.0
+Sistema: Sistema de Gestão de Estágios (Versão 2.0)
+
+---
+
+## 1. Identificação dos Stakeholders
+
+**Alunos:** Estudantes (usuários ativos) que realizam estágio, acessam o sistema e enviam sua documentação acadêmica.
+
+**Orientadores (Professores):** Usuários ativos responsáveis pelo suporte em caso de pendência na documentação;
+
+**Empresas:** Entidade estritamente **passiva** no sistema. Não possuem login ou acesso; seus dados institucionais são apenas registrados para vinculação formal aos contratos e envio de notificações automáticas.
+
+**Sistema Temporal (Cron):** Agente autônomo do servidor responsável pela execução de rotinas em segundo plano e disparo de notificações baseadas na Lei 11.788/08.
+
+---
+
+## 2. Requisitos Funcionais
+
+| ID   | Descrição                                                               | Prioridade |
+|------|-------------------------------------------------------------------------|------------|
+| RF01 | O aluno deve poder se cadastrar no sistema                              | Alta       |
+| RF02 | O aluno e o orientador devem poder realizar login                       | Alta       |
+| RF03 | O sistema deve permitir o registro de dados das Empresas parceiras (Entidade Passiva) | Alta |
+| RF04 | O orientador deve poder avaliar o Termo via Link seguro          | Alta       |
+| RF05 | O sistema deve inspecionar automaticamente a conformidade dos contratos no momento do envio | Alta       |
+| RF06 | O sistema deve emitir um consolidado diário de estágios por e-mail      | Média      |
+| RF07 | O sistema deve cobrar relatórios semestrais automaticamente a cada 6 meses | Alta       |
+
+---
+
+## 3. Requisitos Não Funcionais
+
+**Performance e Otimização:** O sistema deve apresentar tempo de resposta rápido. As consultas à API foram otimizadas com Eager Loading (`select_related`) para erradicar a lentidão de múltiplas consultas aninhadas (Fim do problema N+1).
+
+**Segurança e Privacidade (LGPD):** Dados sensíveis (como CPF) operam em modo `write_only` (apenas inserção, nunca expostos em listagens de leitura). 
+
+**Integridade Anti-Fraude:** Status de auditoria jurídica são `read_only` e tokens de validação (UUID) não são editáveis pelo usuário final, protegendo os contratos contra manipulação de pacotes HTTP.
+
+---
+
+## 4. Protótipo Simplificado
+
+**Tela de Login e Cadastro:** Acesso e registro exclusivo para Alunos e Orientadores.
+
+**Painel de Envio:** Interface onde o aluno anexa documentos e fornece dados passivos da empresa (CNPJ, Razão Social, etc).
+
+**Caixa de Entrada (E-mail):** Interface principal onde os Orientadores recebem os Links Mágicos para aprovação rápida de contratos e os consolidados diários.
