@@ -48,28 +48,25 @@ class TermoDeCompromissoViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'], url_path='avaliar-termo')
     def avaliar_termo(self, request):
         """
-        Endpoint do Link Mágico: POST /api/termos/avaliar-termo/
+        Endpoint do Link: POST /api/termos/avaliar-termo/
         Espera receber: {"token": "UUID", "decisao": "aprovar" ou "reprovar"}
         """
         token = request.data.get('token')
         decisao = request.data.get('decisao')
 
-        # Trava de segurança: Verifica se quem está logado é do tipo Orientador
         if getattr(request.user, 'tipo', '') != 'orientador':
             return Response(
                 {"erro": "Acesso negado. Apenas professores orientadores podem avaliar termos."}, 
                 status=status.HTTP_403_FORBIDDEN
             )
 
-        # Busca o termo específico usando o token do Deep Link
+  
         termo = get_object_or_404(TermoDeCompromisso, token_validacao=token)
 
-        # Processa a decisão
         if decisao == 'aprovar':
             termo.statusJuridico = TermoDeCompromisso.StatusJuridico.ATIVO
             termo.save()
             
-            # Avisa a empresa e o aluno
             send_mail(
                 subject='Estágio Aprovado!',
                 message=f'O termo de compromisso do aluno {termo.aluno.usuario.username} foi validado.',
