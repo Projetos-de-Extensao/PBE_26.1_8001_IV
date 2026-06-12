@@ -219,3 +219,4 @@ Sistema_Automato ..> TermoDeCompromisso : monitora tempo >
 Sistema_Automato ..> RelatorioSemestral : gera pendência >
 
 @enduml
+```
