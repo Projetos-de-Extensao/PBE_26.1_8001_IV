@@ -278,7 +278,7 @@ rectangle "Sistema de Gestão de Estágios V2.0" {
     usecase (UC02: Enviar Termo e Dados da Empresa) as UC02
     usecase (Validar Conformidade Legal) as valida_lei
     
-    usecase (UC03: Avaliar Termo via Link Mágico) as UC03
+    usecase (UC03: Avaliar Termo via Link) as UC03
     
     usecase (UC04: Emitir Consolidado Diário) as UC04
     
