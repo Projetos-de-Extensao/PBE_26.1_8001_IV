@@ -110,9 +110,10 @@ A tabela abaixo descreve os atributos reais mapeados no banco de dados. Note que
 | | `supervisor` | String | Nome do profissional responsável na empresa. |
 | **Instituição** | `nomeUnidade` | String | Identificação do campus (ex: Ibmec RJ). |
 | | `coordenador` | String | Responsável institucional pela validação final. |
+| | `email` | String | Forma de contato com a empresa. |
 | **Orientador** | `siape` | String | Identificação do docente responsável. |
 | | `areaAtuacao` | String | Vincula o professor à área de conhecimento do estágio. |
-| **Termo de Compromisso**| `dataInicio` | Date | Período de vigência para gatilho do robô de 6 meses. |
+| **Termo de Compromisso** | `dataInicio` | Date | Período de vigência para gatilho do robô de 6 meses. |
 | | `dataFim` | Date | Período para controle do limite legal de 2 anos. |
 | | `apoliceSeguro` | String | Apólice obrigatória contra acidentes (Art. 9º). |
 | | `statusJuridico` | Enum | Estado: `Pendente`, `Ativo`, `Reprovado` ou `Concluído`. |
@@ -120,7 +121,7 @@ A tabela abaixo descreve os atributos reais mapeados no banco de dados. Note que
 | **Documento** | `tipo` | String | Categoria do arquivo (Termo ou Relatório). |
 | | `hashSHA256` | String | Identificador de integridade gerado no upload. |
 | | `valido` | Boolean | Define se o documento não foi adulterado. |
-| **Relatório Semestral**| `resumoAtividades` | Text | Conteúdo enviado a cada 6 meses (Art. 7º). |
+| **Relatório Semestral** | `resumoAtividades` | Text | Conteúdo enviado a cada 6 meses (Art. 7º). |
 | | `dataReferencia` | Date | Preenchido automaticamente pelo Cron Job. |
 
 ## Diagrama de Classes Conceitual
