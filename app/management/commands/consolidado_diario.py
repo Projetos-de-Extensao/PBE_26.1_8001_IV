@@ -25,7 +25,7 @@ class Command(BaseCommand):
                 ])
 
                 send_mail(
-                    subject=f"📊 Resumo Diário: Novos Estágios Ativos - {hoje:%d/%m/%Y}",
+                    subject=f"Resumo Diário: Novos Estágios Ativos - {hoje:%d/%m/%Y}",
                     message=(
                         f"Olá, Professor(a) {professor.usuario.username}.\n\n"
                         f"O motor de automação do sistema validou e ativou os contratos dos seguintes alunos hoje:\n\n"
